@@ -15,8 +15,9 @@
     <p class="aim">Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.</p>
     <div class="row">
       <div class="innovation">
-          <h2 class="product">There's beauty in Simplicity</h2>
-          <img src="light-bulb.png" alt="There's beauty in Simplicity" title="There's beauty in Simplicity"/>
+          <h2 id="imgAlt" class="product" style="display:block; animation-fill-mode: forwards; opacity:0">There's beauty in Simplicity</h2>
+          <div id="imgWrp">
+          </div>
       </div>
       <div class="problem-wrp">
           <ul class="problem">
@@ -49,17 +50,27 @@
     <p class="call-for-action-label">Try IdeaDeck for free, subscribe to our mailing list for updates or buy us a coffee :)</p>
     <div class="call-for-action action-count-3">
         <div class="call-for-action-widget">
-            <form action="#" method="post"><input class="subscribe" type="email" placeholder="Enter email to subscribe" /><input type="submit" /></form>
+            <form action="/subscribe/foo@gmail.com" method="POST"><input class="subscribe" type="email" name="email" placeholder="Enter email to subscribe" /><input type="submit" /></form>
         </div>
         <div class="call-for-action-widget">
             <a class="button green" href="#" title="Try Now">Try Now</a>
         </div>
         <div class="call-for-action-widget">
-            <a class="button blue" href="/donate" title="Try Now">Donate</a>
+            <a class="button blue" href="/donate" title="Donate">Donate</a>
         </div>
         <div class="clear"></div>
     </div>
     <div class="footer">Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    <script>
+      var img = new Image()
+      img.onload = function() {
+        document.getElementById('imgAlt').style.display = 'none';
+        document.getElementById('imgWrp').appendChild(img);
+      }
+      img.title = 'There\'s beauty in Simplicity';
+      img.alt = 'There\'s beauty in Simplicity';
+      img.src =  'light-bulb.png';
+    </script>
 </body>
 
 </html>

@@ -70,7 +70,43 @@ p {
 
 .innovation img, .problem {
     align-self: center;
-    /* horizontal and vertical centering */
+}
+
+#imgAlt {
+    display: block;
+    -webkit-animation: fadeIn ease-in 2000ms;
+    -moz-animation: fadeIn ease-in 2000ms;
+    animation: fadeIn ease-in 2000ms;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .product {
@@ -186,9 +222,11 @@ p {
     box-shadow: 0 0 10px #9ecaed;
     z-index: 99;
 }
+
 .word2, .word3, .word4 {
-  margin-left:-5px
+    margin-left: -5px
 }
+
 .call-for-action-widget {
     margin-top: 10px;
     width: 100%;
@@ -212,8 +250,9 @@ input, .button {
     border: 1px solid #ccc;
     font-size: 14px;
 }
+
 input[type=submit] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .button {
@@ -264,15 +303,30 @@ input[type=submit] {
     margin-top: 10px;
 }
 
-.blue {
-  background: #1da1db;
-  color: #fff;
-  border: none;
+.blue, .green {
+    font-weight: bold;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
 }
+
+.blue {
+    border: 2px solid #1da1db;
+    color: #1da1db;
+}
+
 .green {
-  background: #2ebd59;
-  color: #fff;
-  border: none;
+    border: 2px solid #2ebd59;
+    color: #2ebd59;
+}
+
+.blue:hover {
+    background: #1da1db;
+    color: #fff;
+}
+
+.green:hover {
+    background: #2ebd59;
+    color: #fff;
 }
 
 .footer a {
@@ -284,10 +338,10 @@ input[type=submit] {
         width: 50%;
     }
     .call-for-action.action-count-2 .call-for-action-widget {
-      width: 50%;
+        width: 50%;
     }
     .call-for-action.action-count-3 .call-for-action-widget {
-      width: 33%;
+        width: 33%;
     }
     .call-for-action-widget {
         margin-top: 2px;
@@ -302,12 +356,12 @@ input[type=submit] {
         font-size: 1.5rem;
     }
     .bottom-line label:before, .bottom-line label:after {
-      width: 50px;
-      margin-top: 10px;
-      border: none;
-      font-size: .8rem;
-      font-weight: bold;
-      line-height: 100px;
+        width: 50px;
+        margin-top: 10px;
+        border: none;
+        font-size: .8rem;
+        font-weight: bold;
+        line-height: 100px;
     }
     .bottom-line label:after {
         content: "\prev";
