@@ -266,6 +266,7 @@ input[type=submit] {
 
 .call-for-action-label {
     margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 .button.inverted {
