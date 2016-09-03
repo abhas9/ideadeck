@@ -9,4 +9,13 @@ router.get('/donate/:id', function(req, res, next) {
   );
 });
 
+/* POST subscribe form */
+router.post('/subscribe/:id', function(req, res, next) {
+  /* Decide redirect based on stored configuration */
+  var id = req.params.id;
+  res.redirect(307,
+    'http://formspree.io/' + id
+  );
+});
+
 module.exports = router;
