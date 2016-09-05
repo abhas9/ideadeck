@@ -344,6 +344,12 @@ input[type=submit] {
     .call-for-action.action-count-3 .call-for-action-widget {
         width: 33%;
     }
+    .call-for-action.action-count-4 .call-for-action-widget {
+        width: 25%;
+    }
+    .call-for-action.action-count-4 .call-for-action-widget input[type=submit] {
+      min-width: initial;
+    }
     .call-for-action-widget {
         margin-top: 2px;
     }

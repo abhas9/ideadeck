@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    title #{productName}
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='./css/styles.css')
+  body
+    .header
+      h1.name #{productName}
+      p.innovation-title #{productTitle}
+    p.aim
+      | #{productAim}
+    .row
+      .innovation
+        if !forceImage
+          h2#imgAlt.product(style='display:block; animation-fill-mode: forwards; opacity:0') #{productSlogan}
+          #imgWrp
+        else
+            img( title=image.title, alt=image.title src=image.src)
+      .problem-wrp
+        ul.problem
+          each item in aboutProduct
+            li=item
+        .social
+          if facebook
+            a.button.facebook.inverted(href=facebook, target='_blank', title='Facebook') Facebook
+          if twitter
+            a.button.twitter.inverted(href=twitter, target='_blank', title='Twitter') Twitter
+          if github
+            a.button.github.inverted(href=github, target='_blank', title='Github') Github
+      .clear
+    .bottom-line
+      form.buzzwords
+        input#word1(type='radio', name='fancy', value='word1')
+        input#word2(type='radio', name='fancy', value='word2')
+        input#word3(type='radio', name='fancy', value='word3')
+        input#word4(type='radio', name='fancy', value='word4')
+        each buzzword, index in buzzwords
+          - forLabel = 'word' + (index+1)
+          label(for=forLabel)=buzzword
+    p.call-for-action-label
+      | #{call_for_action}
+    - callForActionClass = 'call-for-action action-count-' + actionsCount;
+    div(class=callForActionClass)
+      .call-for-action-widget
+        form(action='/subscribe/#{email}', method='POST')
+          input.subscribe(type='email', name='email', placeholder='Enter email to subscribe')
+          input(type='submit', title='subscribe', value='Subscribe')
+      .call-for-action-widget
+        - linkClass = 'button ' + link.color
+        a(class=linkClass href=link.href title=link.title) #{link.title}
+      .call-for-action-widget
+        - linkClass = 'button ' + donate.color
+        - donateLink = '/donate/' + donate.id
+        a(class=linkClass href=donateLink, title='Donate') Donate
+      .call-for-action-widget
+        - linkClass = 'button ' + buy.color
+        - buyLink = '/buy/' + buy.id
+        a(class=linkClass href=buyLink, title=buy.title) #{buy.title}
+      .clear
+    .footer
+      | #{footer}
+    if !forceImage
+      script.
+        var img = new Image()
+        img.onload = function() {
+        document.getElementById('imgAlt').style.display = 'none';
+        document.getElementById('imgWrp').appendChild(img);
+        }
+        img.title = "#{image.title}";
+        img.alt = "#{image.title}";
+        img.src =  "#{image.src}";
