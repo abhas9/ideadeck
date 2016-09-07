@@ -14,7 +14,7 @@ h1 {
 }
 
 p {
-    margin: 0px 0px 10px;
+    margin: 0px 0px 5px;
 }
 
 .header {
@@ -31,16 +31,11 @@ p {
 
 .row {
     display: -webkit-box;
-    display: -webkit-flex;
+    display: -moz-box;
     display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
-}
-
-.innovation, .problem-wrp {
-    float: left;
-    display: flex;
-    flex-direction: column;
 }
 
 .clear {
@@ -64,7 +59,13 @@ p {
 .innovation, .problem-wrp {
     width: 100%;
     text-align: center;
+    float: left;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -231,31 +232,30 @@ p {
     margin-top: 10px;
     width: 100%;
     float: left;
-    font-size: 1.5rem;
 }
 
-.call-for-action-label {
-    font-size: 24px;
+.call-for-action-text {
+    font-size: large;
     text-transform: capitalize;
-    letter-spacing: 1.5;
-}
-
-input {
-    min-width: 200px;
 }
 
 input, .button {
     background: #fff;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     font-size: 14px;
 }
 
-input[type=submit] {
-    cursor: pointer;
+.call-for-action-widget label {
+  display: block;
+  font-size: medium;
 }
-
-.button {
+.submit {
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button{
     text-decoration: none;
     color: #333;
     width: 90%;
@@ -264,8 +264,8 @@ input[type=submit] {
     text-transform: uppercase;
 }
 
-.call-for-action-label {
-    margin-top: 10px;
+.call-for-action-text {
+    margin-top: 8px;
     margin-bottom: 0px;
 }
 
@@ -274,7 +274,14 @@ input[type=submit] {
 }
 
 .social {
+    text-align: center;
     padding: 10px;
+    float: left;
+    display: table-cell;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     flex-direction: row;
 }
@@ -304,34 +311,40 @@ input[type=submit] {
     margin-top: 10px;
 }
 
-.blue, .green {
+.blue, .pink {
     font-weight: bold;
     background: transparent;
     transition: all 0.3s ease-in-out;
 }
 
 .blue {
-    border: 2px solid #1da1db;
-    color: #1da1db;
+    border: 2px solid #2196f3;
+    color: #2196f3;
 }
 
-.green {
-    border: 2px solid #2ebd59;
-    color: #2ebd59;
+.pink {
+    border: 2px solid #e91e63;
+    color: #e91e63;
 }
 
 .blue:hover {
-    background: #1da1db;
+    background: #2196f3;
     color: #fff;
 }
 
-.green:hover {
-    background: #2ebd59;
+.pink:hover {
+    background: #e91e63;
     color: #fff;
 }
 
 .footer a {
     color: #999;
+}
+
+.call-for-action-widget input,  .call-for-action-widget .button{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @media only screen and (min-width: 768px) {
@@ -341,14 +354,15 @@ input[type=submit] {
     .call-for-action.action-count-2 .call-for-action-widget {
         width: 50%;
     }
+    .call-for-action input, .call-for-action .submit, .call-for-action .button {
+      min-width: 200px;
+      margin-top: 5px;
+    }
     .call-for-action.action-count-3 .call-for-action-widget {
         width: 33%;
     }
     .call-for-action.action-count-4 .call-for-action-widget {
         width: 25%;
-    }
-    .call-for-action.action-count-4 .call-for-action-widget input[type=submit] {
-      min-width: initial;
     }
     .call-for-action-widget {
         margin-top: 2px;
@@ -358,13 +372,23 @@ input[type=submit] {
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    .aim {
+      font-size: 1.5rem;
+      padding: .5rem;
+    }
+    .problem {
+      padding-left: 0px;
+    }
     .bottom-line label {
         font-size: 1.5rem;
     }
     .bottom-line label:before, .bottom-line label:after {
         width: 50px;
-        margin-top: 10px;
+        margin-top: 15px;
         border: none;
         font-size: .8rem;
         font-weight: bold;
@@ -380,5 +404,16 @@ input[type=submit] {
     }
     .bottom-line label:before, .bottom-line label:after {
         background: transparent;
+    }
+    .call-for-action-widget input {
+      width: 90%;
+      margin-top: 5px;
+    }
+    .social {
+      display: table-cell;
+    }
+    .social .button {
+      width: 90%;
+      margin-top: 5px;
     }
 }
