@@ -2,8 +2,15 @@ var gulp = require('gulp');
 var gs = require('gulp-selectors');
 var minify = require('gulp-minifier');
 
-gulp.src(['src/**/*.css', 'src/**/*.html'])
-  .pipe(gs.run())
+gulp.src(['./src/**/*.css', './src/**/*.html'])
+  .pipe(gs.run({
+    'css': ['css'],
+    'html': ['html']
+  }, {
+    ignores: {
+      ids: '*' // ignore all IDs
+    }
+  }))
   .pipe(minify({
     minify: true,
     collapseWhitespace: true,
@@ -15,4 +22,4 @@ gulp.src(['src/**/*.css', 'src/**/*.html'])
       return m && m.join('\n') + '\n' || '';
     }
   }))
-  .pipe(gulp.dest('./build'));
+  .pipe(gulp.dest('./'));

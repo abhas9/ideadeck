@@ -1,0 +1,25 @@
+{
+  "name": "ideadeck",
+  "version": "1.0.0",
+  "description": "Lightweight web-app to generate idea deck with call to action buttons",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minifier": "^0.1.4",
+    "gulp-selectors": "^0.1.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhas9/ideadeck.git"
+  },
+  "author": "Abhas Tandon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhas9/ideadeck/issues"
+  },
+  "homepage": "https://github.com/abhas9/ideadeck#readme"
+}
