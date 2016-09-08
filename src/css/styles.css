@@ -407,4 +407,44 @@ input, .button {
       width: 90%;
       margin-top: 5px;
     }
+
+    .main-call-for-action .blue {
+      background: #2196f3;
+      color: #fff;
+    }
+    .main-call-for-action .pink {
+      background: #e91e63;
+      color: #fff;
+    }
+    .main-call-for-action {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      z-index: 99;
+    }
+    .noindex:-o-prefocus, .main-call-for-action {
+      position: relative;
+    }
+    .main-call-for-action.action-count-2  .call-for-action-widget{
+      width: 50%;
+      margin-bottom: -1px;
+    }
+    .main-call-for-action .button {
+      width: 100%;
+    }
+    body {
+      margin-bottom: 50px;
+    }
+    .main-call-for-action .call-for-action-widget {
+      margin-top: 0px;
+    }
+}
+@media only screen and (max-width: 200px) {
+  .main-call-for-action.action-count-2  .call-for-action-widget{
+    width: 100%;
+  }
+  body {
+    margin-bottom: 100px;
+  }
 }
