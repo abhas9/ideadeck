@@ -275,34 +275,25 @@ input, .button {
 
 .social {
     text-align: center;
-    padding: 10px;
-    float: left;
-    display: table-cell;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
 }
 
 .social .button {
-    flex: 1 0 0;
-    border: none;
     width: auto;
-    font-weight: 300;
 }
 
 .facebook {
     background: #3b5998;
+    border-color: #3b5998;
 }
 
 .github {
     background: #333;
+    border-color: #333;
 }
 
 .twitter {
     background: #1da1f2;
+    border-color: #1da1f2;
 }
 
 .footer {
@@ -354,8 +345,10 @@ input, .button {
     .call-for-action.action-count-2 .call-for-action-widget {
         width: 50%;
     }
-    .call-for-action input, .call-for-action .submit, .call-for-action .button {
+    .call-for-action .subscribe {
       min-width: 200px;
+    }
+    .call-for-action input, .call-for-action .submit, .call-for-action .button {
       margin-top: 5px;
     }
     .call-for-action.action-count-3 .call-for-action-widget {
@@ -409,9 +402,7 @@ input, .button {
       width: 90%;
       margin-top: 5px;
     }
-    .social {
-      display: table-cell;
-    }
+
     .social .button {
       width: 90%;
       margin-top: 5px;
