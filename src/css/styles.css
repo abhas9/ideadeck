@@ -113,130 +113,27 @@ p {
 .product {
     display: none;
 }
-
-.bottom-line {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    height: 100px;
+.feature-set {
+  padding: .5em;
+  background: #fff;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .05), 0 2px 4px 0 rgba(0, 0, 0, .06);
+  margin: .3em 0px .3em 0px;
 }
-
-.bottom-line label {
-    color: #fff;
-    -webkit-transition: -webkit-transform 400ms ease-out;
-    transition: transform 400ms ease-out;
-    display: inline-block;
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    line-height: 100px;
+.feature h2 {
+  color: #333;
+  margin: .2em;
 }
-
-.bottom-line form {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    white-space: nowrap;
+.feature p {
+  color: #444;
+  font-style: italic;
 }
-
-.bottom-line input {
-    position: absolute;
-    margin: 20px;
+.feature {
+  margin-top: .5em;
 }
-
-.bottom-line input:focus~.keys {
-    opacity: 0.8;
-}
-
-.bottom-line input:nth-of-type(1):checked~label:nth-of-type(1), .bottom-line input:nth-of-type(2):checked~label:nth-of-type(2), .bottom-line input:nth-of-type(3):checked~label:nth-of-type(3), .bottom-line input:nth-of-type(4):checked~label:nth-of-type(4) {
-    z-index: 0;
-}
-
-.bottom-line input:nth-of-type(1):checked~label {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-
-.bottom-line input:nth-of-type(2):checked~label {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-}
-
-.bottom-line input:nth-of-type(3):checked~label {
-    -webkit-transform: translate3d(-200%, 0, 0);
-    transform: translate3d(-200%, 0, 0);
-}
-
-.bottom-line input:nth-of-type(4):checked~label {
-    -webkit-transform: translate3d(-300%, 0, 0);
-    transform: translate3d(-300%, 0, 0);
-}
-
-.bottom-line label {
-    background: #fff;
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .05), 0 2px 4px 0 rgba(0, 0, 0, .06);
-    color: #000;
-    font-weight: lighter;
-    font-size: 2.5rem;
-}
-
-.bottom-line label:before, .bottom-line label:after {
-    color: #333;
-    display: block;
-    background: #fff;
-    position: absolute;
-    padding: 15px;
-    font-size: 2.5rem;
-    height: 100px;
-    vertical-align: middle;
-    line-height: 100px;
-    top: 50%;
-    width: 20px;
-    -webkit-transform: translate3d(0, -50%, 0);
-    transform: translate3d(0, -50%, 0);
-    cursor: pointer;
-}
-
-.bottom-line label:before {
-    content: "\3e";
-    border-left: 1px solid #ccc;
-    right: 100%;
-}
-
-.bottom-line label:after {
-    content: "\3c";
-    border-right: 1px solid #ccc;
-    left: 100%;
-}
-
-.buzzwords *:focus~label {
-    content: "";
-    border: 2px solid red;
-    height: 100%;
-    outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
-    z-index: 99;
-}
-
-.word2, .word3, .word4 {
-    margin-left: -5px
-}
-
 .call-for-action-widget {
     margin-top: 10px;
     width: 100%;
     float: left;
-}
-
-.call-for-action-text {
-    font-size: large;
-    text-transform: capitalize;
 }
 
 input, .button {
@@ -262,19 +159,18 @@ input, .button {
     display: inline-block;
     font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .call-for-action-text {
-    margin-top: 8px;
+    margin-top: 0px;
     margin-bottom: 0px;
+    font-size: large;
+    text-transform: capitalize;
 }
 
 .button.inverted {
     color: #fff;
-}
-
-.social {
-    text-align: center;
 }
 
 .social .button {
@@ -358,10 +254,23 @@ input, .button {
         width: 25%;
     }
     .call-for-action-widget {
-        margin-top: 2px;
+        margin-top: .5em;
     }
-    .bottom-line label:before, .bottom-line label:after {
-        width: 50px;
+    .call-for-action.action-count-2 .wdiget-1 > * {
+        text-align: right;
+        margin-right: 10px;
+    }
+    .call-for-action.action-count-2 .wdiget-2 > * {
+        text-align: left;
+        margin-left: 10px;
+    }
+    .feature-wrp {
+      width: 80%;
+      margin: 0px auto;
+    }
+    .feature {
+      width: 33%;
+      float: left;
     }
 }
 
@@ -375,28 +284,6 @@ input, .button {
     }
     .problem {
       padding-left: 0px;
-    }
-    .bottom-line label {
-        font-size: 1.5rem;
-    }
-    .bottom-line label:before, .bottom-line label:after {
-        width: 50px;
-        margin-top: 15px;
-        border: none;
-        font-size: .8rem;
-        font-weight: bold;
-        line-height: 100px;
-    }
-    .bottom-line label:after {
-        content: "\prev";
-        left: 100%;
-    }
-    .bottom-line label:before {
-        content: "next";
-        right: 100%;
-    }
-    .bottom-line label:before, .bottom-line label:after {
-        background: transparent;
     }
     .call-for-action-widget input {
       width: 90%;
