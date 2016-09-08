@@ -439,6 +439,9 @@ input, .button {
     .main-call-for-action .call-for-action-widget {
       margin-top: 0px;
     }
+    .call-for-action-text {
+      display: none;
+    }
 }
 @media only screen and (max-width: 200px) {
   .main-call-for-action.action-count-2  .call-for-action-widget{
