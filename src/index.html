@@ -82,11 +82,14 @@
             document.getElementById('a').style.display = 'none';
             document.getElementById('b').appendChild(img);
         }
+        img.onerror = function() {
+            this.src = 'light-bulb.png';
+        }
         img.title = 'There\'s beauty in Simplicity';
         img.alt = 'There\'s beauty in Simplicity';
-        img.style.maxWidth = '100%';
+        img.style.maxWidth = '256px';
         img.style.height = 'auto';
-        img.src = 'light-bulb.png';
+        img.src = 'light-bulb.svg';
     </script>
 </body>
 
