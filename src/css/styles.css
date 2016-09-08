@@ -141,6 +141,7 @@ input, .button {
     padding: 10px;
     border: 2px solid #ccc;
     font-size: 14px;
+    text-align: center;
 }
 
 .call-for-action-widget label {
@@ -151,6 +152,7 @@ input, .button {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
+  color: #333;
 }
 .button{
     text-decoration: none;
@@ -228,15 +230,26 @@ input, .button {
     color: #999;
 }
 
-.call-for-action-widget input,  .call-for-action-widget .button{
+.call-for-action-widget input,  .call-for-action-widget .button, .feature{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 @media only screen and (min-width: 768px) {
-    .innovation, .problem-wrp {
-        width: 50%;
+    .row {
+      width: 80%;
+      margin: 0 auto;
+    }
+    .innovation {
+      width: 35%
+    }
+    .problem-wrp {
+        width: 65%;
+    }
+    .problem-wrp .problem {
+      text-align: left;
+      align-self: flex-start;;
     }
     .call-for-action.action-count-2 .call-for-action-widget {
         width: 50%;
@@ -264,11 +277,16 @@ input, .button {
         text-align: left;
         margin-left: 10px;
     }
+    .feature-set {
+      border: 1px solid #ccc;
+      box-shadow: none;
+    }
     .feature-wrp {
-      width: 80%;
+      width: 100%;
       margin: 0px auto;
     }
     .feature {
+      padding: 0% 1%;
       width: 33%;
       float: left;
     }
