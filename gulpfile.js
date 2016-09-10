@@ -7,9 +7,8 @@ gulp.src(['./src/**/*.css', './src/**/*.html'])
     'css': ['css'],
     'html': ['html']
   }, {
-    ignores: {
-      ids: '*' // ignore all IDs
-    }
+    ids: '*', // ignore all IDs,
+    classes: ['c_*']
   }))
   .pipe(minify({
     minify: true,
