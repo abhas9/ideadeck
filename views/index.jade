@@ -1,5 +1,183 @@
-extends layout
+doctype html
+head
+  title Try IdeaDeck
+  meta(name='viewport', content='width=device-width,initial-scale=1')
+  meta(name='description', content='Lightweight web-app to generate idea deck with call to action buttons')
+  meta(property='og:image', content='light-bulb.png')
+  link(rel='stylesheet', href='./css/form.css')
+header.a
+  h1.ag IdeaDeck
+  p.ah Lightweight web-app to generate idea deck with call to action buttons
+.b
+  form.c(method='POST', action='/try')
+    label(for='i1') What is it called
+      span=(error && error.i1)? ` (${error.i1})` : ''
+    |:
+    input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1)
+    pre.
+      Eg. IdeaDeck
 
-block content
-  h1= title
-  p Welcome to #{title}
+    br
+    label(for='i2') What is it all about
+      span=(error && error.i1)? ` (${error.i2})` : ''
+    |:
+    input#i2(type='text', name='i2', size=75, placeholder='Is it a bird? Is it a plane? Is it Superman??', area-invalid=(error && error.i2)? 'true':'false', value=i2)
+    pre.
+      Eg. Lightweight web-app to generate idea deck with call to action buttons
+
+    br
+    label(for='i3') What does it do:
+      span=(error && error.i1)? ` (${error.i3})` : ''
+    |:
+    input#i3(type='text', name='i3', size=90, placeholder='Explain why was the product/idea developed?', area-invalid=(error && error.i3)? 'true':'false', value=i3)
+    pre.
+      Eg. Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.
+
+    br
+    label(for='i4') Explain your idea/product in a short paragraph or 3-4 points:
+      span=(error && error.i4)? ` (${error.i4})` : ''
+    |:
+    br
+    textarea#i4(name='i4', rows=4, cols=75, placeholder='Enter product/idea details', area-invalid=(error && error.i4)? 'true':'false')=i4
+    pre.
+      Eg.
+      With over 100 million businesses are launched annually.
+      Innovators need ways to convey their idea clearly to their audience.
+      IdeaDeck: Easily create, host and share your ideas with call to action buttons.
+      Works on all devices, ultra-light weight (~ 4 KB) and doesn't require any javascript.
+
+    br
+
+    if (i5 !== 'true')
+      input(type='submit', value='Include Buzzwords' name='add_buzzwords')
+    else
+      label(for='i5a_0') Buzzword(1)
+        span=(error && error.i5a_0)? ` (${error.i5a_0})` : ''
+      |:
+      input#i5a_0(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_0)? 'true':'false', value=(i5a && i5a[0])? i5a[0]:'')
+      pre.
+        Eg. Universal
+      br
+      label(for='i5b_0') Description(1)
+        span=(error && error.i5b_0)? ` (${error.i5b_0})` : ''
+      |:
+      input#i5b_0(type='text', name='i5b', size=100, placeholder='', area-invalid=(error && error.i5b_0)? 'true':'false', value=(i5b && i5b[0])? i5b[0]:'')
+      pre.
+        Eg. Accessible light-weight page that works in all major browsers including Lynx ;)
+      br
+      label(for='i5a_1') Buzzword(2)
+        span=(error && error.i5a_1)? ` (${error.i5a_1})` : ''
+      |:
+      input#i5a_1(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_1)? 'true':'false', value=(i5a && i5a[1])? i5a[1]:'')
+      pre.
+        Eg. Universal
+      br
+      label(for='i5b_1') Description(2)
+        span=(error && error.i5b_1)? ` (${error.i5b_1})` : ''
+      |:
+      input#i5b_1(type='text', name='i5b', size=100, placeholder='', area-invalid=(error && error.i5b_1)? 'true':'false', value=(i5b && i5b[1])? i5b[1]:'')
+      pre.
+        Eg. Accessible light-weight page that works in all major browsers including Lynx ;)
+      br
+      label(for='i5a_2') Buzzword(3)
+        span=(error && error.i5a_2)? ` (${error.i5a_2})` : ''
+      |:
+      input#i5a_2(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_2)? 'true':'false', value=(i5a && i5a[2])? i5a[2]:'')
+      pre.
+        Eg. Universal
+      br
+      label(for='i5b_2') Description(3)
+        span=(error && error.i5b_2)? ` (${error.i5b_2})` : ''
+      |:
+      input#i5b_2(type='text', name='i5b', size=100, placeholder='', area-invalid=(error && error.i5b_2)? 'true':'false', value=(i5b && i5b[2])? i5b[2]:'')
+      pre.
+        Eg. Accessible light-weight page that works in all major browsers including Lynx ;)
+      br
+    input(type='hidden', name='i5', value=i5)
+    br
+
+    br
+    if (!i7)
+      fieldset
+        legend Select primary call to action buttons (Max two)
+          span=(error && error.i6)? ` Error: ${error.i6}` : ''
+        input#i6a(type='checkbox', name='i6', value='website', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('website')>=0) )
+        label(for='i6a') Website
+        input#i6b(type='checkbox', name='i6', value='buy', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('buy')>=0) )
+        label(for='i6b') Buy
+        input#i6c(type='checkbox', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
+        label(for='i6c') Donate
+      input(type='submit', name='add_call_to_action' value='Add call to action buttons')
+    else
+      if (i7.split(',').indexOf('website')>=0)
+        br
+        label(for='i7a') Website Title
+          span=(error && error.i7a)? ` (${error.i7a})` : ''
+        |:
+        input#i7a(type='text', name='i7a', size=120, placeholder='Enter website title', area-invalid=(error && error.i7a)? 'true':'false', value=i7a)
+        pre.
+          Eg. Try Now
+        br
+        label(for='i7b') Website URL
+          span=(error && error.i7b)? ` (${error.i7b})` : ''
+        |:
+        input#i7b(type='text', name='i7b', size=120, placeholder='Enter website title', area-invalid=(error && error.i7b)? 'true':'false', value=i7b)
+        pre.
+          Eg. Try Now
+      if (i7.split(',').indexOf('buy')>=0)
+        br
+        label(for='i7c') PayPal email ID for receiving payments
+          span=(error && error.i7c)? ` (${error.i7c})` : ''
+        |:
+        input#i7c(type='email', name='i7c', placeholder='Enter paypal email id', area-invalid=(error && error.i7c)? 'true':'false', value=i7c)
+        br
+        label(for='i7d') Product cost in USD
+          span=(error && error.i7d)? ` (${error.i7d})` : ''
+        |:
+        input#i7d(type='text', name='i7d', placeholder='Enter product cost in USD', area-invalid=(error && error.i7d)? 'true':'false', value=i7d)
+      if (i7.split(',').indexOf('donate')>=0)
+        br
+        label(for='i7e') PayPal email ID for donations
+          span=(error && error.i7e)? ` (${error.i7e})` : ''
+        |:
+        input#i7e(type='email', name='i7e', placeholder='Enter paypal email id', area-invalid=(error && error.i7e)? 'true':'false', value=i7c)
+    input(type='hidden', name='i7', value=i7)
+    br
+
+    br
+    input#i8(type='checkbox', name='i8', value='i8', checked=(i8))
+    label(for='i8') Include social sharing buttons
+    br
+
+    br
+    if (i9 !== 'true')
+      input(type='submit', value='Include subscribe widget' name='add_subscribe')
+    else
+      label(for='i9a') Email address (to be notified for new subscriptions)
+        span=(error && error.i9a)? ` (${error.i9a})` : ''
+      |:
+      input#i9a(type='email', name='i9a', placeholder='you@domail.tdl', area-invalid=(error && error.i9a)? 'true':'false', value=i9a)
+    input(type='hidden', name='i9', value=i9)
+    br
+
+    br
+    label(for='i10_0')|Image URL (We recommned using
+    a(href='https://postimg.org/') postimg.org
+    |  for free image hosting)
+    span=(error && error.i10_0)? ` (${error.i10_0})` : ''
+    |:
+    input#i10_0(type='text', name='i10', placeholder='Enter url of a self hosted image', area-invalid=(error && error.i10_0)? 'true':'false', value=i10_0)
+    pre.
+      Eg. https://s15.postimg.org/ynmtf53ez/mario.png
+    label(for='i11_0') Image title
+      span=(error && error.i10_0)? ` (${error.i10_0})` : ''
+    |:
+    input#i11_0(type='text', name='i11', placeholder='Enter image title', area-invalid=(error && error.i11_0)? 'true':'false', value=i11_0)
+    pre.
+        Eg. Mario
+
+    br
+    input(type='submit', value='Add another image' name='add_image')
+
+    br
+    input(type='submit', value='Generate' name='generate')
