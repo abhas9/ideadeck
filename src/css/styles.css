@@ -148,7 +148,7 @@ input, .button, button {
   display: block;
   font-size: medium;
 }
-.submit {
+.submit, button {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
