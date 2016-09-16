@@ -202,8 +202,8 @@ input {
 }
 
 .footer {
-    font-size: 12px;
-    color: #aaa;
+    font-size: .8em;
+    color: #333;
     margin-top: 10px;
 }
 
@@ -234,7 +234,7 @@ input {
 }
 
 .footer a {
-    color: #999;
+    color: #000;
 }
 
 .call-for-action-widget input,  .call-for-action-widget .button, .feature{
