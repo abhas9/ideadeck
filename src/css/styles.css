@@ -13,6 +13,8 @@ h1 {
     margin: 0px;
     padding: 5px;
     font-size: 3rem;
+    -webkit-font-smoothing: initial;
+	  -moz-osx-font-smoothing: initial;
 }
 
 p {
