@@ -4,6 +4,8 @@ body {
     margin: 0;
     min-height: 100%;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -27,6 +29,7 @@ p {
 .aim {
     font-variant-caps: small-caps;
     font-size: 1.75rem;
+    color: #555;
 }
 
 .row {
@@ -120,7 +123,7 @@ p {
   margin: .3em 0px .3em 0px;
 }
 .feature h2 {
-  color: #333;
+  color: #444;
   margin: .4em;
 }
 .feature p {
@@ -139,9 +142,14 @@ p {
 input, .button, button {
     background: #fff;
     padding: 10px;
-    border: 2px solid #ccc;
     font-size: 14px;
-    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.09);
+    color: #757575;
+    font-weight: bold;
+}
+input {
+  text-align: left;
 }
 
 .call-for-action-widget label {
@@ -152,11 +160,10 @@ input, .button, button {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
-  color: #333;
+  color: #424242;
 }
 .button{
     text-decoration: none;
-    color: #333;
     width: 90%;
     display: inline-block;
     font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
