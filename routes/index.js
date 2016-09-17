@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var ajaxRender = require('../controllers/partial-form-renderer');
+
 const pug = require('pug');
 const compiledFunction = pug.compileFile(__dirname + '/template.pug');
 
@@ -10,6 +12,10 @@ router.get('/try', function(req, res, next) {
 });
 
 router.post('/try', function(req, res, next) {
+  if(req.headers['content-type'] === 'application/json') {
+    return ajaxRender(req, res, next);
+  }
+
   console.log(req.body);
   if (req.body.hasOwnProperty('generate')) {
     var error = {};
