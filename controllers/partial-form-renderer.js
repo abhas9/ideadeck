@@ -23,7 +23,7 @@ module.exports = function(req, res, next) {
 				error: {
 					i6: 'Select atleast one call to action button'
 				}
-			});
+			}));
 		} 
 		else {
 			res.render('callForAction', Object.assign({}, req.body, {
