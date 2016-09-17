@@ -137,9 +137,8 @@ router.post('/try', function(req, res, next) {
 
     //*********************//
     if (error) {
-      res.render('index', Object.assign({}, {
-        error
-      }, req.body));
+      res.render('index', Object.assign({}, 
+        error, req.body));
     } else { // generate
       res.render('index');
     }
