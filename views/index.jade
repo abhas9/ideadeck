@@ -5,11 +5,12 @@ head
   meta(name='description', content='Lightweight web-app to generate idea deck with call to action buttons')
   meta(property='og:image', content='light-bulb.png')
   link(rel='stylesheet', href='./css/form.css')
+  script(type='text/javascript', src='./js/a.js')
 header.a
   h1.ag IdeaDeck
   p.ah Lightweight web-app to generate idea deck with call to action buttons
 .b
-  form.c(method='POST', action='/try')
+  form#f1.c(method='POST', action='/try')
     label(for='i1') What is it called
       span=(error && error.i1)? ` (${error.i1})` : ''
     |:
@@ -48,99 +49,29 @@ header.a
 
     br
 
-    if (i5 !== 'true')
-      input(type='submit', value='Include Buzzwords' name='add_buzzwords')
-    else
-      label(for='i5a_0') Buzzword(1)
-        span=(error && error.i5a_0)? ` (${error.i5a_0})` : ''
-      |:
-      input#i5a_0(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_0)? 'true':'false', value=(i5a && i5a[0])? i5a[0]:'')
-      pre.
-        Eg. Universal
-      br
-      label(for='i5b_0') Description(1)
-        span=(error && error.i5b_0)? ` (${error.i5b_0})` : ''
-      |:
-      input#i5b_0(type='text', name='i5b', size=100, placeholder='', area-invalid=(error && error.i5b_0)? 'true':'false', value=(i5b && i5b[0])? i5b[0]:'')
-      pre.
-        Eg. Accessible light-weight page that works in all major browsers including Lynx ;)
-      br
-      label(for='i5a_1') Buzzword(2)
-        span=(error && error.i5a_1)? ` (${error.i5a_1})` : ''
-      |:
-      input#i5a_1(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_1)? 'true':'false', value=(i5a && i5a[1])? i5a[1]:'')
-      pre.
-        Eg. Universal
-      br
-      label(for='i5b_1') Description(2)
-        span=(error && error.i5b_1)? ` (${error.i5b_1})` : ''
-      |:
-      input#i5b_1(type='text', name='i5b', size=100, placeholder='', area-invalid=(error && error.i5b_1)? 'true':'false', value=(i5b && i5b[1])? i5b[1]:'')
-      pre.
-        Eg. Accessible light-weight page that works in all major browsers including Lynx ;)
-      br
-      label(for='i5a_2') Buzzword(3)
-        span=(error && error.i5a_2)? ` (${error.i5a_2})` : ''
-      |:
-      input#i5a_2(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_2)? 'true':'false', value=(i5a && i5a[2])? i5a[2]:'')
-      pre.
-        Eg. Universal
-      br
-      label(for='i5b_2') Description(3)
-        span=(error && error.i5b_2)? ` (${error.i5b_2})` : ''
-      |:
-      input#i5b_2(type='text', name='i5b', size=100, placeholder='', area-invalid=(error && error.i5b_2)? 'true':'false', value=(i5b && i5b[2])? i5b[2]:'')
-      pre.
-        Eg. Accessible light-weight page that works in all major browsers including Lynx ;)
-      br
+    div
+      if (i5 !== 'true')
+        input(type='submit', class='s', value='Include Buzzwords' name='add_buzzwords')
+      else
+        include buzzwords
     input(type='hidden', name='i5', value=i5)
     br
 
     br
-    if (!i7)
-      fieldset
-        legend Select primary call to action buttons (Max two)
-          span=(error && error.i6)? ` Error: ${error.i6}` : ''
-        input#i6a(type='checkbox', name='i6', value='website', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('website')>=0) )
-        label(for='i6a') Website
-        input#i6b(type='checkbox', name='i6', value='buy', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('buy')>=0) )
-        label(for='i6b') Buy
-        input#i6c(type='checkbox', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
-        label(for='i6c') Donate
-      input(type='submit', name='add_call_to_action' value='Add call to action buttons')
-    else
-      if (i7.split(',').indexOf('website')>=0)
-        br
-        label(for='i7a') Website Title
-          span=(error && error.i7a)? ` (${error.i7a})` : ''
-        |:
-        input#i7a(type='text', name='i7a', size=120, placeholder='Enter website title', area-invalid=(error && error.i7a)? 'true':'false', value=i7a)
-        pre.
-          Eg. Try Now
-        br
-        label(for='i7b') Website URL
-          span=(error && error.i7b)? ` (${error.i7b})` : ''
-        |:
-        input#i7b(type='text', name='i7b', size=120, placeholder='Enter website title', area-invalid=(error && error.i7b)? 'true':'false', value=i7b)
-        pre.
-          Eg. Try Now
-      if (i7.split(',').indexOf('buy')>=0)
-        br
-        label(for='i7c') PayPal email ID for receiving payments
-          span=(error && error.i7c)? ` (${error.i7c})` : ''
-        |:
-        input#i7c(type='email', name='i7c', placeholder='Enter paypal email id', area-invalid=(error && error.i7c)? 'true':'false', value=i7c)
-        br
-        label(for='i7d') Product cost in USD
-          span=(error && error.i7d)? ` (${error.i7d})` : ''
-        |:
-        input#i7d(type='text', name='i7d', placeholder='Enter product cost in USD', area-invalid=(error && error.i7d)? 'true':'false', value=i7d)
-      if (i7.split(',').indexOf('donate')>=0)
-        br
-        label(for='i7e') PayPal email ID for donations
-          span=(error && error.i7e)? ` (${error.i7e})` : ''
-        |:
-        input#i7e(type='email', name='i7e', placeholder='Enter paypal email id', area-invalid=(error && error.i7e)? 'true':'false', value=i7c)
+    div
+      if (!i7)
+        fieldset
+          legend Select primary call to action buttons (Max two)
+            span=(error && error.i6)? ` Error: ${error.i6}` : ''
+          input#i6a(type='checkbox', name='i6', value='website', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('website')>=0) )
+          label(for='i6a') Website
+          input#i6b(type='checkbox', name='i6', value='buy', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('buy')>=0) )
+          label(for='i6b') Buy
+          input#i6c(type='checkbox', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
+          label(for='i6c') Donate
+        input(type='submit', class='s', name='add_call_to_action', data-field="i6", value='Add call to action buttons')
+      else
+        include callForAction
     input(type='hidden', name='i7', value=i7)
     br
 
@@ -150,13 +81,11 @@ header.a
     br
 
     br
-    if (i9 !== 'true')
-      input(type='submit', value='Include subscribe widget' name='add_subscribe')
-    else
-      label(for='i9a') Email address (to be notified for new subscriptions)
-        span=(error && error.i9a)? ` (${error.i9a})` : ''
-      |:
-      input#i9a(type='email', name='i9a', placeholder='you@domail.tdl', area-invalid=(error && error.i9a)? 'true':'false', value=i9a)
+    div
+      if (i9 !== 'true')
+        input(type='submit', class='s', value='Include subscribe widget' name='add_subscribe')
+      else
+        include subscribe
     input(type='hidden', name='i9', value=i9)
     br
 
