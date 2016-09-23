@@ -133,18 +133,14 @@ router.post('/try', function(req, res, next) {
 
     if(Array.isArray(req.body.i10)) {
       req.body.i10.forEach(function(val, index) {
-        console.log('...', val, index);
         if(val === '') {
-        console.log('|||', val, index);
           req.model.i10[index].srcError = error['i10_' + index] ='required';
         }
       });
     }
     if(Array.isArray(req.body.i11)) {
       req.body.i11.forEach(function(val, index) {
-        console.log('...', val, index);
         if(val === '') {
-        console.log('|||', val, index);
           req.model.i10[index].titleError = error['i11_' + index] ='required';
         }
       });
@@ -155,7 +151,8 @@ router.post('/try', function(req, res, next) {
       res.render('index', Object.assign({},
         {error: error}, req.body, req.model));
     } else { // generate
-      res.render('index');
+      helper.mixBodyinModel(req, res);
+      res.render('index', req.model);
     }
     //*********************//
   } else if (req.body.hasOwnProperty('add_buzzwords')) {
