@@ -18,7 +18,7 @@
 		if(!btn) {
 			return;
 		}
-		var b,c,f,i,p={},x;
+		var b,c,f,i,m,p={},x;
 		b=btn.getAttribute('data-field');
 		if(b) {
 			c=a.forms[0][b];
@@ -29,6 +29,9 @@
 				if(f) {
 					p[b].push(f);
 				}
+				if(b==='i10_l') { /*err!*/
+					c[i].value = parseInt(c[i].value) + 1;
+				}
 			}
 		}
 		p[btn.name]=btn.name;
@@ -38,8 +41,17 @@
 			if(this.readyState===4&&this.status===200){
 				if(this.getResponseHeader('Content-Type').split(';')[0]==='text/html'){
 					b=a.getElementById(c.getAttribute('data-target'));
+					m=c.getAttribute('data-method');
 					b=b?b:c.parentNode;
-					b.innerHTML=this.responseText;
+					if(m==='apnd') {
+						var elem = document.createElement('div');
+						elem.innerHTML = this.responseText + '<br/>';
+						b.insertBefore(elem, c);
+						console.log(elem.childNodes);
+					} else {
+						b.innerHTML=this.responseText;
+					}
+					
 				}else{
 					//error json???
 					console.log('ignoring json response over ajax:::\n', this.responseText);

@@ -1,16 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var ajaxRender = require('../controllers/partial-form-renderer');
+var helper = require('../lib/helper');
 
 const pug = require('pug');
 
 /* Try now */
 router.get('/try', function(req, res, next) {
-  console.log(req.body);
-  res.render('index');
+  helper.setInitialModel(req, res);
+  res.render('index', req.model);
 });
 
 router.post('/try', function(req, res, next) {
+  helper.setInitialModel(req, res);
   if(req.headers['content-type'] === 'application/json') {
     return ajaxRender(req, res, next);
   }
@@ -128,22 +130,33 @@ router.post('/try', function(req, res, next) {
         i9a: 'required'
       });
     }
+      
+    console.log('req.model.i10', req.model.i10);
 
-    if (req.body.i10 && req.body.i10[0] === '') {
-      error = Object.assign({}, error, {
-        i10_0: 'required'
+    if(Array.isArray(req.body.i10)) {
+      req.body.i10.forEach(function(val, index) {
+        console.log('...', val, index);
+        if(val === '') {
+        console.log('|||', val, index);
+          req.model.i10[index].urlError = error['i10_' + index] ='required';
+        }
       });
     }
-    if (req.body.i11 && req.body.i11[0] === '') {
-      error = Object.assign({}, error, {
-        i11_0: 'required'
+    if(Array.isArray(req.body.i11)) {
+      req.body.i11.forEach(function(val, index) {
+        console.log('...', val, index);
+        if(val === '') {
+        console.log('|||', val, index);
+          req.model.i10[index].labelError = error['i11_' + index] ='required';
+        }
       });
     }
+    console.log('req.model.i10', req.model.i10);
 
     //*********************//
-    if (error) {
+    if (Object.keys(error).length !== 0) {
       res.render('index', Object.assign({},
-        error, req.body));
+        {error: error}, req.body, req.model));
     } else { // generate
       res.render('index');
     }
@@ -178,6 +191,9 @@ router.post('/try', function(req, res, next) {
           .body.i6
       }));
     }
+  } else if (req.body.hasOwnProperty('add_image')) {
+    req.model.i10.push({url:'', label:''});
+    res.render('index', req.model);
   }
 });
 
