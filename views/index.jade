@@ -46,11 +46,7 @@ header.a
     br
 
     div
-      if (i5 !== 'true')
-        input(type='submit', class='s', value='Include Buzzwords' name='add_buzzwords')
-      else
-        include buzzwords
-    input(type='hidden', name='i5', value=i5)
+      include buzzwords
     br
 
     br
@@ -65,10 +61,10 @@ header.a
           label(for='i6b') Buy
           input#i6c(type='checkbox', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
           label(for='i6c') Donate
+        input(type='hidden', name='i7', value=i7)
         input(type='submit', class='s', name='add_call_to_action', data-field="i6", value='Add call to action buttons')
       else
         include callForAction
-    input(type='hidden', name='i7', value=i7)
     br
 
     br
@@ -78,11 +74,7 @@ header.a
 
     br
     div
-      if (i9 !== 'true')
-        input(type='submit', class='s', value='Include subscribe widget' name='add_subscribe')
-      else
-        include subscribe
-    input(type='hidden', name='i9', value=i9)
+      include subscribe
     br
 
     div#imgs

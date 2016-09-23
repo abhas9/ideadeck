@@ -1,3 +1,7 @@
-label(for='i9a') Email address (to be notified for new subscriptions)
-  span=(error && error.i9a)? ` (${error.i9a})` : ''
-input#i9a(type='email', name='i9a', placeholder='you@domail.tdl', area-invalid=(error && error.i9a)? 'true':'false', value=i9a)
+if (i9 !== 'true')
+  input(type='submit', class='s', value='Include subscribe widget' name='add_subscribe')
+else
+  label(for='i9a') Email address (to be notified for new subscriptions)
+    span=(error && error.i9a)? ` (${error.i9a})` : ''
+  input#i9a(type='email', name='i9a', placeholder='you@domail.tdl', area-invalid=(error && error.i9a)? 'true':'false', value=i9a)
+input(type='hidden', name='i9', value=i9)

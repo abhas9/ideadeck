@@ -130,35 +130,30 @@ router.post('/try', function(req, res, next) {
         i9a: 'required'
       });
     }
-      
-    console.log('req.model.i10', req.model.i10);
 
     if(Array.isArray(req.body.i10)) {
       req.body.i10.forEach(function(val, index) {
-        console.log('...', val, index);
         if(val === '') {
-        console.log('|||', val, index);
-          req.model.i10[index].urlError = error['i10_' + index] ='required';
+          req.model.i10[index].srcError = error['i10_' + index] ='required';
         }
       });
     }
     if(Array.isArray(req.body.i11)) {
       req.body.i11.forEach(function(val, index) {
-        console.log('...', val, index);
         if(val === '') {
-        console.log('|||', val, index);
-          req.model.i10[index].labelError = error['i11_' + index] ='required';
+          req.model.i10[index].titleError = error['i11_' + index] ='required';
         }
       });
     }
-    console.log('req.model.i10', req.model.i10);
 
     //*********************//
     if (Object.keys(error).length !== 0) {
+      console.log('***** form had errors: ', error);
       res.render('index', Object.assign({},
         {error: error}, req.body, req.model));
     } else { // generate
-      res.render('index');
+      helper.mixBodyinModel(req, res);
+      res.render('index', req.model);
     }
     //*********************//
   } else if (req.body.hasOwnProperty('add_buzzwords')) {
@@ -192,7 +187,7 @@ router.post('/try', function(req, res, next) {
       }));
     }
   } else if (req.body.hasOwnProperty('add_image')) {
-    req.model.i10.push({url:'', label:''});
+    req.model.i10.push({src:'', title:''});
     res.render('index', req.model);
   }
 });

@@ -38,7 +38,7 @@ module.exports = function(req, res, next) {
 				}
 			});
 		}
-		res.render('photos', {index: req.body.i10_l, img: {url:'', label:''}});
+		res.render('photos', {index: req.body.i10_l, img: {src:'', title:''}});
 	} else {
 		res.end(); // Shouldn't happen.
 	}
