@@ -365,3 +365,25 @@ input {
     margin-bottom: 100px;
   }
 }
+#c {
+  position: relative;
+  min-height: 300px;
+}
+#c .c_w {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-x: auto;
+  overflow-y: auto;;
+  white-space: nowrap;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+#c .c_d {
+  webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
