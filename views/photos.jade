@@ -1,13 +1,11 @@
 if index > 1
   br
-
 label(for='i10_#{index}') Image URL 
   if index == '0'
     | (We recommned using 
     a(href='https://postimg.org/') postimg.org 
     | for free image hosting) 
   span=(img.urlError)? ` (${img.urlError})` : ''
-|: 
 input(id='i10_#{index}', type='text', name='i10[#{index}]', placeholder='Enter url of a self hosted image', area-invalid=(error && error.i10_0)? 'true':'false', value='#{img.url}')
 
 if index == '0'
@@ -18,11 +16,10 @@ else
   br
 label(for='i11_#{index}') Image title
   span=(img.labelError)? ` (${img.labelError})` : ''
-|:
 input(id='i11_#{index}', type='text', name='i11[#{index}]', placeholder='Enter image title', area-invalid=(error && error.i11_0)? 'true':'false', value='#{img.label}')
 
 if index == '0'
   pre.
     Eg. Mario
-else 
+else
   br

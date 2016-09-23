@@ -13,7 +13,6 @@ header.a
   form#f1.c(method='POST', action='/try')
     label(for='i1') What is it called
       span=(error && error.i1)? ` (${error.i1})` : ''
-    |:
     input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1)
     pre.
       Eg. IdeaDeck
@@ -21,7 +20,6 @@ header.a
     br
     label(for='i2') What is it all about
       span=(error && error.i1)? ` (${error.i2})` : ''
-    |:
     input#i2(type='text', name='i2', size=75, placeholder='Is it a bird? Is it a plane? Is it Superman??', area-invalid=(error && error.i2)? 'true':'false', value=i2)
     pre.
       Eg. Lightweight web-app to generate idea deck with call to action buttons
@@ -29,7 +27,6 @@ header.a
     br
     label(for='i3') What does it do:
       span=(error && error.i1)? ` (${error.i3})` : ''
-    |:
     input#i3(type='text', name='i3', size=90, placeholder='Explain why was the product/idea developed?', area-invalid=(error && error.i3)? 'true':'false', value=i3)
     pre.
       Eg. Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.
@@ -37,7 +34,6 @@ header.a
     br
     label(for='i4') Explain your idea/product in a short paragraph or 3-4 points:
       span=(error && error.i4)? ` (${error.i4})` : ''
-    |:
     br
     textarea#i4(name='i4', rows=4, cols=75, placeholder='Enter product/idea details', area-invalid=(error && error.i4)? 'true':'false')=i4
     pre.
@@ -89,7 +85,6 @@ header.a
     input(type='hidden', name='i9', value=i9)
     br
 
-    br
     div#imgs
       each img, index in i10
         include photos
@@ -98,4 +93,4 @@ header.a
       input(type='submit', class='s', value='Add another image' name='add_image', data-field="i10_l", data-method='apnd')
 
     br
-    input(type='submit', value='Generate' name='generate')
+    input#g(type='submit', value='Generate' name='generate')
