@@ -3,7 +3,6 @@ var router = express.Router();
 var ajaxRender = require('../controllers/partial-form-renderer');
 
 const pug = require('pug');
-const compiledFunction = pug.compileFile(__dirname + '/template.pug');
 
 /* Try now */
 router.get('/try', function(req, res, next) {
@@ -143,7 +142,7 @@ router.post('/try', function(req, res, next) {
 
     //*********************//
     if (error) {
-      res.render('index', Object.assign({}, 
+      res.render('index', Object.assign({},
         error, req.body));
     } else { // generate
       res.render('index');
@@ -212,6 +211,8 @@ router.get('/test', function(req, res, next) {
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });
+  // make this as single call later
+  const compiledFunction = pug.compileFile(__dirname + '/template.jade');
   var a = compiledFunction({
     productName: 'IdeaDeck',
     productTitle: 'Lightweight web-app to generate idea deck with call to action buttons',
