@@ -25,3 +25,4 @@ if (i7.split(',').indexOf('donate')>=0)
   label(for='i7e') PayPal email ID for donations
     span=(error && error.i7e)? ` (${error.i7e})` : ''
   input#i7e(type='email', name='i7e', placeholder='Enter paypal email id', area-invalid=(error && error.i7e)? 'true':'false', value=i7c)
+input(type='hidden', name='i7', value=i7)
