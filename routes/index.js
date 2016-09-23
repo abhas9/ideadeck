@@ -130,8 +130,6 @@ router.post('/try', function(req, res, next) {
         i9a: 'required'
       });
     }
-      
-    console.log('req.model.i10', req.model.i10);
 
     if(Array.isArray(req.body.i10)) {
       req.body.i10.forEach(function(val, index) {
@@ -151,7 +149,6 @@ router.post('/try', function(req, res, next) {
         }
       });
     }
-    console.log('req.model.i10', req.model.i10);
 
     //*********************//
     if (Object.keys(error).length !== 0) {
