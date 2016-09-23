@@ -225,39 +225,40 @@ router.get('/test', function(req, res, next) {
   // make this as single call later
   const compiledFunction = pug.compileFile(__dirname + '/template.jade');
   var a = compiledFunction({
-    productName: 'IdeaDeck',
-    productTitle: 'Lightweight web-app to generate idea deck with call to action buttons',
-    productAim: 'Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.',
-    productSlogan: 'There\'s beauty in Simplicity',
-    facebook: 'https://facebook.com/', //optional
-    twitter: 'https://twitter.com/abhas9', //optional
-    github: 'https://github.com/abhas9', //optional
-    aboutProduct: ['foo', 'foo'],
-    buzzwords: ['Foo1', 'Foo2', 'Foo3', 'Foo4'], // exactly 4 - no more, no less
-    actionsCount: 4,
+    absolutePath : "https://github.com/IdeaDeck/#",
+    about: "Lightweight web-app to generate idea deck with call to action buttons",
+    description: 'Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.',
+    ideas: [ 'Over 100 million businesses are launched annually.',
+            'Innovators need ways to convey their idea clearly to their audience.',
+            'IdeaDeck: Easily create, host and share your ideas with call to action buttons.',
+            "Works on all devices, ultra-light weight (~ 4 KB) and doesn't require any javascript."], // exactly 4 - no more, no less
+    highlights: [ {
+            "title" : "Highlight 1",
+            "description" : " Some stuff to boost here"
+        } , {
+            "title" : "Highlight 2",
+            "description" : " Some stuff to boost here"
+        } , {
+            "title" : "Highlight 3",
+            "description" : " Some stuff to boost here"
+        }],
+    website: { // can be undefined
+        'title': 'try',
+        'url': 'http://foo.com'
+    },
+    donate: { // can be undefined
+        'email': 'foo@bar.com'
+    },
     subscribe: {
-      email: 'email@gmail.com'
+        "email": 'email@gmail.com'
     },
-    link: {
-      href: 'foo',
-      title: 'foofoo',
-      color: 'green'
-    }, // color can be green or blue only
-    donate: {
-      id: 'id',
-      color: 'blue'
-    },
-    buy: {
-      id: 'id',
-      title: 'Buy now @ 5$',
-      color: 'blue'
-    },
-    forceImage: false,
-    image: {
-      title: 'There\'s beauty in Simplicity',
-      src: 'light-bulb.png',
-    },
-    footer: 'Test test'
+    images : [
+        { "title": "mario",
+        "src" : "mario.png"}
+    ],
+    footer: 'Test test',
+    witty_note : "Try IdeaDeck For Free, Or Buy Us A Coffee :)",
+    sharing : true
   });
   console.log(a);
   res.write(a);
