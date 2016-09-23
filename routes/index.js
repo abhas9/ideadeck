@@ -148,6 +148,7 @@ router.post('/try', function(req, res, next) {
 
     //*********************//
     if (Object.keys(error).length !== 0) {
+      console.log('***** form had errors: ', error);
       res.render('index', Object.assign({},
         {error: error}, req.body, req.model));
     } else { // generate
