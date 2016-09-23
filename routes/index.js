@@ -152,8 +152,14 @@ router.post('/try', function(req, res, next) {
       res.render('index', Object.assign({},
         {error: error}, req.body, req.model));
     } else { // generate
-      helper.mixBodyinModel(req, res);
-      res.render('index', req.model);
+      helper.mixBodyInModel(req, res, function(err) {
+        if(err) {
+          console.log('errrr', err);
+          res.render('index', req.body); // @TODO: Indicate error.
+        } else {
+          res.render('index', req.model);
+        }
+      });
     }
     //*********************//
   } else if (req.body.hasOwnProperty('add_buzzwords')) {
