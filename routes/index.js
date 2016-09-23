@@ -247,7 +247,7 @@ router.get('/test', function(req, res, next) {
         'url': 'http://foo.com'
     },
     donate: { // can be undefined
-        'email': 'foo@bar.com'
+        'email': 'abhastandon007@gmail.com'
     },
     subscribe: {
         "email": 'email@gmail.com'
@@ -258,7 +258,8 @@ router.get('/test', function(req, res, next) {
     ],
     footer: 'Test test',
     witty_note : "Try IdeaDeck For Free, Or Buy Us A Coffee :)",
-    sharing : true
+    sharing : true,
+    title : "IdeaDeck"
   });
   console.log(a);
   res.write(a);

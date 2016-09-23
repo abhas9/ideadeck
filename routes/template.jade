@@ -16,17 +16,20 @@ html
 		.row
 			.innovation
 				#c
-					if images != "undefined" && images.length > 1 
+					if images != "undefined" && images.length ==1 
+						for img in images
+							img(src=img.src, alt=img.title, title=img.title, style='max-width: 100%')
+					else
 						#d(style='display:none')
 							button#p(title='previous') PREVIOUS
 							button#n(title='next') NEXT
-					.c_w
-						each img,i in images
-							if i == 0
-								.c_d.c_a
-							else
-								.c_d
-							img(src=img.src, alt=img.title, title=img.title, style='max-width: 100%')
+						.c_w
+							each img,i in images
+								if i == 0
+									.c_d.c_a
+								else
+									.c_d
+								img(src=img.src, alt=img.title, title=img.title, style='max-width: 100%')
 			.problem-wrp
 				ul.problem
 					for idea in ideas
@@ -37,7 +40,7 @@ html
 				.call-for-action.action-count-2.main-call-for-action
 					if typeof website != "undefined"
 						.call-for-action-widget
-							a.button.pink(href='/#{website.url}', title='/#{website.title}') Try Now
+							a.button.pink(href=website.url, target='_blank', title=website.title) Try Now
 					if typeof buy != "undefined"
 						- var url = "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" + buy.email + "&item_name=" + buy.cost + "&currency_code=USD"
 						.call-for-action-widget
