@@ -4,6 +4,7 @@ var ajaxRender = require('../controllers/partial-form-renderer');
 var helper = require('../lib/helper');
 
 const pug = require('pug');
+const compiledFunction = pug.compileFile(__dirname + '/template.jade');
 
 /* Try now */
 router.get('/try', function(req, res, next) {
@@ -157,7 +158,7 @@ router.post('/try', function(req, res, next) {
           console.log('errrr', err);
           res.render('index', req.body); // @TODO: Indicate error.
         } else {
-          res.render('index', req.model);
+          res.end(compiledFunction(req.model));
         }
       });
     }
@@ -229,7 +230,6 @@ router.get('/test', function(req, res, next) {
     'Content-Type': 'text/html'
   });
   // make this as single call later
-  const compiledFunction = pug.compileFile(__dirname + '/template.jade');
   var a = compiledFunction({
     absolutePath : "https://github.com/IdeaDeck/#",
     about: "Lightweight web-app to generate idea deck with call to action buttons",
