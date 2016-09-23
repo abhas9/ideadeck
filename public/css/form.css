@@ -133,6 +133,6 @@ p {
 a, a:visited {
   color: #222;
 }
-label > span {
+label > span, legend > span {
   color: #d9534f;
 }

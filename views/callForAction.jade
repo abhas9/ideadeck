@@ -8,9 +8,9 @@ if (i7.split(',').indexOf('website')>=0)
   br
   label(for='i7b') Website URL
     span=(error && error.i7b)? ` (${error.i7b})` : ''
-  input#i7b(type='text', name='i7b', size=120, placeholder='Enter website title', area-invalid=(error && error.i7b)? 'true':'false', value=i7b)
+  input#i7b(type='url', name='i7b', size=120, placeholder='Enter website url', area-invalid=(error && error.i7b)? 'true':'false', value=i7b)
   pre.
-    Eg. Try Now
+    Eg. http://yourdomain.tld
 if (i7.split(',').indexOf('buy')>=0)
   br
   label(for='i7c') PayPal email ID for receiving payments
