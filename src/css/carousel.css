@@ -1,6 +1,10 @@
 #c .c_d {
   display: none;
 }
+#c .c_w {
+  position: static;
+  display: block;
+}
 #n, #p {
   width:50%;
 }
