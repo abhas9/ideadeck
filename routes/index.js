@@ -136,7 +136,7 @@ router.post('/try', function(req, res, next) {
         console.log('...', val, index);
         if(val === '') {
         console.log('|||', val, index);
-          req.model.i10[index].urlError = error['i10_' + index] ='required';
+          req.model.i10[index].srcError = error['i10_' + index] ='required';
         }
       });
     }
@@ -145,7 +145,7 @@ router.post('/try', function(req, res, next) {
         console.log('...', val, index);
         if(val === '') {
         console.log('|||', val, index);
-          req.model.i10[index].labelError = error['i11_' + index] ='required';
+          req.model.i10[index].titleError = error['i11_' + index] ='required';
         }
       });
     }
@@ -189,7 +189,7 @@ router.post('/try', function(req, res, next) {
       }));
     }
   } else if (req.body.hasOwnProperty('add_image')) {
-    req.model.i10.push({url:'', label:''});
+    req.model.i10.push({src:'', title:''});
     res.render('index', req.model);
   }
 });
