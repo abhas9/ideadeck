@@ -90,23 +90,12 @@ header.a
     br
 
     br
-    label(for='i10_0')|Image URL (We recommned using
-    a(href='https://postimg.org/') postimg.org
-    |  for free image hosting)
-    span=(error && error.i10_0)? ` (${error.i10_0})` : ''
-    |:
-    input#i10_0(type='text', name='i10', placeholder='Enter url of a self hosted image', area-invalid=(error && error.i10_0)? 'true':'false', value=i10_0)
-    pre.
-      Eg. https://s15.postimg.org/ynmtf53ez/mario.png
-    label(for='i11_0') Image title
-      span=(error && error.i10_0)? ` (${error.i10_0})` : ''
-    |:
-    input#i11_0(type='text', name='i11', placeholder='Enter image title', area-invalid=(error && error.i11_0)? 'true':'false', value=i11_0)
-    pre.
-        Eg. Mario
+    div#imgs
+      each img, index in i10
+        include photos
+      input(type='hidden', name='i10_l', value='#{i10.length}')
 
-    br
-    input(type='submit', value='Add another image' name='add_image')
+      input(type='submit', class='s', value='Add another image' name='add_image', data-field="i10_l", data-method='apnd')
 
     br
     input(type='submit', value='Generate' name='generate')
