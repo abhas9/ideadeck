@@ -199,6 +199,10 @@ router.post('/try', function(req, res, next) {
   }
 });
 
+router.get('/landing/:path/edit', function(req, res){
+  res.end('this will let you edit later');
+});
+
 /* Donation */
 router.get('/donate/:id', function(req, res, next) {
   /* Decide redirect based on stored configuration */
