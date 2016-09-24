@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/landing', express.static(path.join(__dirname, process.env.PERSIST_DIR || 'landingPages')));
 
 app.use('/', routes);
 
