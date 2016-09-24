@@ -2,31 +2,28 @@ if (i7.split(',').indexOf('website')>=0)
   br
   label(for='i7a') Website Title
     span=(error && error.i7a)? ` (${error.i7a})` : ''
-  |:
   input#i7a(type='text', name='i7a', size=120, placeholder='Enter website title', area-invalid=(error && error.i7a)? 'true':'false', value=i7a)
   pre.
     Eg. Try Now
   br
   label(for='i7b') Website URL
     span=(error && error.i7b)? ` (${error.i7b})` : ''
-  |:
-  input#i7b(type='text', name='i7b', size=120, placeholder='Enter website title', area-invalid=(error && error.i7b)? 'true':'false', value=i7b)
+  input#i7b(type='url', name='i7b', size=120, placeholder='Enter website url', area-invalid=(error && error.i7b)? 'true':'false', value=i7b)
   pre.
-    Eg. Try Now
+    Eg. http://yourdomain.tld
 if (i7.split(',').indexOf('buy')>=0)
   br
   label(for='i7c') PayPal email ID for receiving payments
     span=(error && error.i7c)? ` (${error.i7c})` : ''
-  |:
   input#i7c(type='email', name='i7c', placeholder='Enter paypal email id', area-invalid=(error && error.i7c)? 'true':'false', value=i7c)
   br
   label(for='i7d') Product cost in USD
     span=(error && error.i7d)? ` (${error.i7d})` : ''
-  |:
   input#i7d(type='text', name='i7d', placeholder='Enter product cost in USD', area-invalid=(error && error.i7d)? 'true':'false', value=i7d)
 if (i7.split(',').indexOf('donate')>=0)
   br
   label(for='i7e') PayPal email ID for donations
     span=(error && error.i7e)? ` (${error.i7e})` : ''
-  |:
   input#i7e(type='email', name='i7e', placeholder='Enter paypal email id', area-invalid=(error && error.i7e)? 'true':'false', value=i7c)
+input(type='hidden', name='i7', value=i7)
+input(type='hidden', name='i6', value=i6)

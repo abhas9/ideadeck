@@ -30,5 +30,16 @@ module.exports = function(req, res, next) {
 				i7: (Array.isArray(req.body.i6)) ? req.body.i6.join(',') : req.body.i6
 			}));
 		}
+	} else if (req.body.hasOwnProperty('add_image')) {
+		if(isNaN(req.body.i10_l)) {
+			return res.json({
+				error: {
+					imgs: 'Cannot add image'
+				}
+			});
+		}
+		res.render('photos', {index: req.body.i10_l, img: {src:'', title:''}});
+	} else {
+		res.end(); // Shouldn't happen.
 	}
 };

@@ -1,0 +1,23 @@
+#c .c_d {
+  display: none;
+}
+#c .c_w {
+  position: static;
+  display: block;
+}
+#n, #p {
+  width:50%;
+}
+#n {
+  border-left: none;
+}
+#c .c_d.c_a {
+  display: block;
+  border-top: none;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.09);
+}
+#c .c_d img {
+  margin: .5em auto;
+}

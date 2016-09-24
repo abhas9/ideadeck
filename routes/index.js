@@ -1,17 +1,19 @@
 var express = require('express');
 var router = express.Router();
 var ajaxRender = require('../controllers/partial-form-renderer');
+var helper = require('../lib/helper');
 
 const pug = require('pug');
-const compiledFunction = pug.compileFile(__dirname + '/template.pug');
+const compiledFunction = pug.compileFile(__dirname + '/template.jade');
 
 /* Try now */
 router.get('/try', function(req, res, next) {
-  console.log(req.body);
-  res.render('index');
+  helper.setInitialModel(req, res);
+  res.render('index', req.model);
 });
 
 router.post('/try', function(req, res, next) {
+  helper.setInitialModel(req, res);
   if(req.headers['content-type'] === 'application/json') {
     return ajaxRender(req, res, next);
   }
@@ -130,23 +132,35 @@ router.post('/try', function(req, res, next) {
       });
     }
 
-    if (req.body.i10 && req.body.i10[0] === '') {
-      error = Object.assign({}, error, {
-        i10_0: 'required'
+    if(Array.isArray(req.body.i10)) {
+      req.body.i10.forEach(function(val, index) {
+        if(val === '') {
+          req.model.i10[index].srcError = error['i10_' + index] ='required';
+        }
       });
     }
-    if (req.body.i11 && req.body.i11[0] === '') {
-      error = Object.assign({}, error, {
-        i11_0: 'required'
+    if(Array.isArray(req.body.i11)) {
+      req.body.i11.forEach(function(val, index) {
+        if(val === '') {
+          req.model.i10[index].titleError = error['i11_' + index] ='required';
+        }
       });
     }
 
     //*********************//
-    if (error) {
-      res.render('index', Object.assign({}, 
-        error, req.body));
+    if (Object.keys(error).length !== 0) {
+      console.log('***** form had errors: ', error);
+      res.render('index', Object.assign({},
+        {error: error}, req.body, req.model));
     } else { // generate
-      res.render('index');
+      helper.mixBodyInModel(req, res, function(err) {
+        if(err) {
+          console.log('errrr', err);
+          res.render('index', req.body); // @TODO: Indicate error.
+        } else {
+          res.end(compiledFunction(req.model));
+        }
+      });
     }
     //*********************//
   } else if (req.body.hasOwnProperty('add_buzzwords')) {
@@ -179,7 +193,14 @@ router.post('/try', function(req, res, next) {
           .body.i6
       }));
     }
+  } else if (req.body.hasOwnProperty('add_image')) {
+    req.model.i10.push({src:'', title:''});
+    res.render('index', req.model);
   }
+});
+
+router.get('/landing/:path/edit', function(req, res){
+  res.end('this will let you edit later');
 });
 
 /* Donation */
@@ -212,40 +233,43 @@ router.get('/test', function(req, res, next) {
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });
+  // make this as single call later
   var a = compiledFunction({
-    productName: 'IdeaDeck',
-    productTitle: 'Lightweight web-app to generate idea deck with call to action buttons',
-    productAim: 'Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.',
-    productSlogan: 'There\'s beauty in Simplicity',
-    facebook: 'https://facebook.com/', //optional
-    twitter: 'https://twitter.com/abhas9', //optional
-    github: 'https://github.com/abhas9', //optional
-    aboutProduct: ['foo', 'foo'],
-    buzzwords: ['Foo1', 'Foo2', 'Foo3', 'Foo4'], // exactly 4 - no more, no less
-    actionsCount: 4,
+    absolutePath : "https://github.com/IdeaDeck/#",
+    about: "Lightweight web-app to generate idea deck with call to action buttons",
+    description: 'Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.',
+    ideas: [ 'Over 100 million businesses are launched annually.',
+            'Innovators need ways to convey their idea clearly to their audience.',
+            'IdeaDeck: Easily create, host and share your ideas with call to action buttons.',
+            "Works on all devices, ultra-light weight (~ 4 KB) and doesn't require any javascript."], // exactly 4 - no more, no less
+    highlights: [ {
+            "title" : "Highlight 1",
+            "description" : " Some stuff to boost here"
+        } , {
+            "title" : "Highlight 2",
+            "description" : " Some stuff to boost here"
+        } , {
+            "title" : "Highlight 3",
+            "description" : " Some stuff to boost here"
+        }],
+    website: { // can be undefined
+        'title': 'try',
+        'url': 'http://foo.com'
+    },
+    donate: { // can be undefined
+        'email': 'abhastandon007@gmail.com'
+    },
     subscribe: {
-      email: 'email@gmail.com'
+        "email": 'email@gmail.com'
     },
-    link: {
-      href: 'foo',
-      title: 'foofoo',
-      color: 'green'
-    }, // color can be green or blue only
-    donate: {
-      id: 'id',
-      color: 'blue'
-    },
-    buy: {
-      id: 'id',
-      title: 'Buy now @ 5$',
-      color: 'blue'
-    },
-    forceImage: false,
-    image: {
-      title: 'There\'s beauty in Simplicity',
-      src: 'light-bulb.png',
-    },
-    footer: 'Test test'
+    images : [
+        { "title": "mario",
+        "src" : "mario.png"}
+    ],
+    footer: 'Test test',
+    witty_note : "Try IdeaDeck For Free, Or Buy Us A Coffee :)",
+    sharing : true,
+    title : "IdeaDeck"
   });
   console.log(a);
   res.write(a);

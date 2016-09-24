@@ -1,0 +1,27 @@
+if index > 1
+  br
+
+if index == '0'
+  p
+    | We recommned using&nbsp;
+    a(href='https://postimg.org/' target='_blank') postimg.org
+    |&nbsp;for free image hosting
+label(for='i10_#{index}') Image URL
+  span=(img.urlError)? ` (${img.urlError})` : ''
+input(id='i10_#{index}', type='url', name='i10[#{index}]', placeholder='Enter url of a self hosted image', area-invalid=(error && error.i10_0)? 'true':'false', value='#{img.src}')
+
+if index == '0'
+  pre.
+    Eg. https://s15.postimg.org/ynmtf53ez/mario.png
+else
+  br
+  br
+label(for='i11_#{index}') Image title
+  span=(img.titleError)? ` (${img.titleError})` : ''
+input(id='i11_#{index}', type='text', name='i11[#{index}]', placeholder='Enter image title', area-invalid=(error && error.i11_0)? 'true':'false', value='#{img.title}')
+
+if index == '0'
+  pre.
+    Eg. Mario
+else
+  br

@@ -23,7 +23,116 @@ p {
     font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     text-align: center;
 }
+
 .b {
-  width: 80%;
-  margin: 1em auto;
+    width: 80%;
+    margin: 1em auto;
+}
+
+input[type="email"], input[type="text"], input[type="url"], textarea, select {
+    height: 38px;
+    padding: 6px 10px;
+    /* The 6px vertically centers text on FF, ignored by Webkit */
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+/* Removes awkward default styles on some inputs for iOS */
+
+input[type="email"], input[type="text"], input[type="url"], textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    min-height: 65px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+input[type="email"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+    border: 1px solid #33C3F0;
+    outline: 0;
+}
+
+label, legend {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+fieldset {
+    padding: 0;
+    border-width: 0;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    display: inline;
+}
+
+input[type="checkbox"]+label {
+    display: inline-block;
+    margin-left: .5rem;
+    font-weight: normal;
+}
+
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #0275d8;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    color: #FFF;
+    background-color: #0275d8;
+}
+
+.button:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, .button:focus, button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {
+  background-color: #025aa5;
+  border-color: #025aa5;
+    outline: 0;
+}
+#g {
+  width: 100%;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+#g:hover {
+  background-color: #449d44;
+  border-color: #449d44;
+}
+pre, p {
+    color: #444;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+p {
+  font-size: 14px;
+}
+a, a:visited {
+  color: #222;
+}
+label > span, legend > span {
+  color: #d9534f;
 }
