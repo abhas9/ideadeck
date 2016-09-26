@@ -16,7 +16,7 @@ html
 		.row
 			.innovation
 				#c
-					if images != "undefined" && images.length ==1 
+					if images != "undefined" && images.length ==1
 						for img in images
 							img(src=img.src, alt=img.title, title=img.title, style='max-width: 100%')
 					else
@@ -37,48 +37,63 @@ html
 					else
 						li please, enter a couple of notes here. See our gallery for samples
 				p.call-for-action-text #{witty_note}
-				.call-for-action.action-count-2.main-call-for-action
+				- var call_for_action_count = 0;
+				if (website)
+					- call_for_action_count++
+				if (buy)
+					- call_for_action_count++
+				if (donate)
+					- call_for_action_count++
+				div(class='call-for-action action-count-' + call_for_action_count +' main-call-for-action')
 					if typeof website != "undefined"
 						.call-for-action-widget
-							a.button.pink(href=website.url, target='_blank', title=website.title) Try Now
+							a.button.pink(href=website.url, target='_blank', title=website.title) #{website.title}
 					if typeof buy != "undefined"
 						- var url = "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" + buy.email + "&item_name=" + buy.cost + "&currency_code=USD"
 						.call-for-action-widget
-							a.button.pink(href=url, title='Buy Now') Buy Now
+							a.button.blue(href=url, title='Buy Now')='Buy Now ($' + buy.cost + ')'
 					if typeof donate != "undefined"
 						- var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=' + donate.email + '&item_name='+ title
 						.call-for-action-widget
 							a.button.blue(href=url, title='Donate') Donate
 			.clear
-		.feature-set
-			.feature-wrp
-				for highlight in highlights
-					.feature
-						h2= highlight.title
-						p= highlight.description
-			.clear
-		.call-for-action.action-count-2
-			.call-for-action-widget.wdiget-1
-				form(action='/subscribe/#{subscribe.email}', method='POST')
-					label(for='email') What's your Email address?
-					input#email.subscribe(type='email', name='email', required='', aria-required='true', placeholder='you@yourdomain.tld', autocorrect='off')
-					input.submit(type='submit', title='subscribe', value='Subscribe')
-			.call-for-action-widget.wdiget-2
-				.social
-					label Don't keep this a secret. Share!
-					- var facebookShare = 'http://www.facebook.com/sharer.php?u='+ absolutePath
-					a.button.facebook.inverted(href=facebookShare, target='_blank', title='Facebook Share') Facebook
-					- var encodedText = encodeURIComponent(about)
-					- var tweetLink = 'https://twitter.com/intent/tweet?text='+encodedText+'&url='+absolutePath+'&hashtags=10kapart' //optional
-					a.button.twitter.inverted(href=tweetLink, target='_blank', title='Tweet') Tweet
-			.clear
-		footer.footer
-			| Icons made by 
-			a(href='http://www.flaticon.com/authors/freepik', title='Freepik') Freepik
-			|  from 
-			a(href='http://www.flaticon.com', title='Flaticon') www.flaticon.com
-			|  is licensed by 
-			a(href='http://creativecommons.org/licenses/by/3.0/', title='Creative Commons BY 3.0', target='_blank') CC 3.0 BY
+		if (Array.isArray(highlights) && highlights.length === 3)
+			.feature-set
+				.feature-wrp
+					for highlight in highlights
+						.feature
+							h2= highlight.title
+							p= highlight.description
+				.clear
+		- var widgetCount = 0
+		if (sharing)
+			- widgetCount++;
+		if (subscribe)
+			- widgetCount++;
+		if (widgetCount > 0)
+			div(class='call-for-action action-count-' + widgetCount)
+				if (subscribe)
+					.call-for-action-widget.wdiget-1
+						form(action='/subscribe/#{subscribe.email}', method='POST')
+							label(for='email') What's your Email address?
+							input#email.subscribe(type='email', name='email', required='', aria-required='true', placeholder='you@yourdomain.tld', autocorrect='off')
+							input.submit(type='submit', title='subscribe', value='Subscribe')
+				if (sharing)
+					.call-for-action-widget.wdiget-2
+						.social
+							label Don't keep this a secret. Share!
+							- var facebookShare = 'http://www.facebook.com/sharer.php?u='+ absolutePath
+							a.button.facebook.inverted(href=facebookShare, target='_blank', title='Facebook Share') Facebook
+							- var encodedText = encodeURIComponent(about)
+							- var tweetLink = 'https://twitter.com/intent/tweet?text='+encodedText+'&url='+absolutePath+'&hashtags=10kapart' //optional
+							a.button.twitter.inverted(href=tweetLink, target='_blank', title='Tweet') Tweet
+				.clear
+		if (footer)
+			footer.footer
+				| Developed using IdeaDeck | #{footer}
+		else
+			footer.footer
+				| Developed using IdeaDeck
 
 		if typeof images != "undefined" && images.length > 1
 			script.
