@@ -19,14 +19,14 @@ header.a
 
     br
     label(for='i2') What is it all about
-      span=(error && error.i1)? ` (${error.i2})` : ''
+      span=(error && error.i2)? ` (${error.i2})` : ''
     input#i2(type='text', name='i2', size=75, placeholder='Is it a bird? Is it a plane? Is it Superman??', area-invalid=(error && error.i2)? 'true':'false', value=i2)
     pre.
       Eg. Lightweight web-app to generate idea deck with call to action buttons
 
     br
     label(for='i3') What does it do:
-      span=(error && error.i1)? ` (${error.i3})` : ''
+      span=(error && error.i3)? ` (${error.i3})` : ''
     input#i3(type='text', name='i3', size=90, placeholder='Explain why was the product/idea developed?', area-invalid=(error && error.i3)? 'true':'false', value=i3)
     pre.
       Eg. Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.
@@ -47,7 +47,6 @@ header.a
 
     div
       include buzzwords
-    br
 
     br
     div
@@ -65,7 +64,13 @@ header.a
         input(type='submit', class='s', name='add_call_to_action', data-field="i6", value='Add call to action buttons')
       else
         include callForAction
+
     br
+    label(for='i12') Enter call to action button text:
+      span=(error && error.i12)? ` (${error.i12})` : ''
+    input#i12(type='text', name='i12', size=90, placeholder='Tell your audience why should they buy/donate or visit your website?', area-invalid=(error && error.i12)? 'true':'false', value=i12)
+    pre.
+      Eg. Try IdeaDeck for free now !!!
 
     br
     input#i8(type='checkbox', name='i8', value='i8', checked=(i8))
@@ -83,6 +88,13 @@ header.a
       input(type='hidden', name='i10_l', value='#{i10.length}')
 
       input(type='submit', class='s', value='Add another image' name='add_image', data-field="i10_l", data-method='apnd')
+
+    br
+    label(for='i13') Enter some footer text:
+      span=(error && error.i13)? ` (${error.i13})` : ''
+    input#i13(type='text', name='i13', size=90, placeholder='Include your optional fotter text here', area-invalid=(error && error.i13)? 'true':'false', value=i13)
+    pre.
+      Eg. Developed using IdeaDeck
 
     br
     input#g(type='submit', value='Generate' name='generate')
