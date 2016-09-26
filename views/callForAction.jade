@@ -19,7 +19,7 @@ if (i7.split(',').indexOf('buy')>=0)
   br
   label(for='i7d') Product cost in USD
     span=(error && error.i7d)? ` (${error.i7d})` : ''
-  input#i7d(type='text', name='i7d', placeholder='Enter product cost in USD', area-invalid=(error && error.i7d)? 'true':'false', value=i7d)
+  input#i7d(type='number', name='i7d', placeholder='Enter product cost in USD', area-invalid=(error && error.i7d)? 'true':'false', value=i7d)
 if (i7.split(',').indexOf('donate')>=0)
   br
   label(for='i7e') PayPal email ID for donations

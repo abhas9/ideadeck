@@ -29,7 +29,7 @@ p {
     margin: 1em auto;
 }
 
-input[type="email"], input[type="text"], input[type="url"], textarea, select {
+input[type="email"], input[type="text"], input[type="url"], textarea, select, input[type="number"] {
     height: 38px;
     padding: 6px 10px;
     /* The 6px vertically centers text on FF, ignored by Webkit */
@@ -44,7 +44,7 @@ input[type="email"], input[type="text"], input[type="url"], textarea, select {
 
 /* Removes awkward default styles on some inputs for iOS */
 
-input[type="email"], input[type="text"], input[type="url"], textarea {
+input[type="email"], input[type="text"], input[type="url"], textarea, input[type="number"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -56,7 +56,7 @@ textarea {
     padding-bottom: 6px;
 }
 
-input[type="email"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+input[type="email"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, textarea:focus, select:focus, input[type="number"]:focus {
     border: 1px solid #33C3F0;
     outline: 0;
 }
