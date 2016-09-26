@@ -54,12 +54,12 @@ header.a
       if (!i7)
         fieldset
           legend Select primary call to action buttons (Max two)
-            span=(error && error.i6)? ` Error: ${error.i6}` : ''
-          input#i6a(type='checkbox', name='i6', value='website', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('website')>=0) )
+            span#ei6=(error && error.i6)? ` (${error.i6})` : ''
+          input#i6a(type='checkbox', class='i6', name='i6', value='website', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('website')>=0) )
           label(for='i6a') Website
-          input#i6b(type='checkbox', name='i6', value='buy', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('buy')>=0) )
+          input#i6b(type='checkbox', class='i6', name='i6', value='buy', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('buy')>=0) )
           label(for='i6b') Buy
-          input#i6c(type='checkbox', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
+          input#i6c(type='checkbox', class='i6', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
           label(for='i6c') Donate
         input(type='hidden', name='i7', value=i7)
         input(type='submit', class='s', name='add_call_to_action', data-field="i6", value='Add call to action buttons')
