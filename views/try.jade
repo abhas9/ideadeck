@@ -13,7 +13,7 @@ header.a
   form#f1.c(method='POST', action='/try')
     label(for='i1') What is it called
       span=(error && error.i1)? ` (${error.i1})` : ''
-    input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1, required)
+    input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1, required, autocorrect='off', spellcheck='false')
     pre.
       Eg. IdeaDeck
 
