@@ -27,9 +27,10 @@ html
 							each img,i in images
 								if i == 0
 									.c_d.c_a
+										img(src=img.src, alt=img.title, title=img.title, style='max-width: 100%')
 								else
 									.c_d
-								img(src=img.src, alt=img.title, title=img.title, style='max-width: 100%')
+										img(src=img.src, alt=img.title, title=img.title, style='max-width: 100%')
 			.problem-wrp
 				ul.problem
 					for idea in ideas
@@ -99,7 +100,7 @@ html
 			script.
 				var file = location.pathname.split( "/" ).pop();
 				var link = document.createElement( "link" );
-				link.href = file.substr( 0, file.lastIndexOf( "." ) ) + "css/carousel.css";
+				link.href = file.substr( 0, file.lastIndexOf( "." ) ) + "carousel.css";
 				link.type = "text/css";
 				link.rel = "stylesheet";
 				link.media = "screen,print";
