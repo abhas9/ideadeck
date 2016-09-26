@@ -16,7 +16,7 @@ if index == '0'
 else
   br
   br
-label(for='i11_#{index}') Image title
+label(for='i11_#{index}') Image Title
   span=(img.titleError)? ` (${img.titleError})` : ''
 input(id='i11_#{index}', type='text', name='i11[#{index}]', placeholder='Enter image title', area-invalid=(error && error.i11_0)? 'true':'false', value='#{img.title}')
 
