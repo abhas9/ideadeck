@@ -9,7 +9,7 @@ const compiledFunction = pug.compileFile(__dirname + '/template.jade');
 /* Try now */
 router.get('/try', function(req, res, next) {
   helper.setInitialModel(req, res);
-  res.render('index', req.model);
+  res.render('try', req.model);
 });
 
 /* Gallery */
@@ -157,14 +157,14 @@ router.post('/try', function(req, res, next) {
     //*********************//
     if (Object.keys(error).length !== 0) {
       console.log('***** form had errors: ', error);
-      res.render('index', Object.assign({}, {
+      res.render('try', Object.assign({}, {
         error: error
       }, req.body, req.model));
     } else { // generate
       helper.mixBodyInModel(req, res, function(err) {
         if (err) {
           console.log('errrr', err);
-          res.render('index', req.body); // @TODO: Indicate error.
+          res.render('try', req.body); // @TODO: Indicate error.
         } else {
           res.end(compiledFunction(req.model));
         }
@@ -172,16 +172,16 @@ router.post('/try', function(req, res, next) {
     }
     //*********************//
   } else if (req.body.hasOwnProperty('add_buzzwords')) {
-    res.render('index', Object.assign({}, req.body, {
+    res.render('try', Object.assign({}, req.body, {
       i5: 'true'
     }));
   } else if (req.body.hasOwnProperty('add_subscribe')) {
-    res.render('index', Object.assign({}, req.body, {
+    res.render('try', Object.assign({}, req.body, {
       i9: 'true'
     }));
   } else if (req.body.hasOwnProperty('add_call_to_action')) {
     if (req.body.i6 && Array.isArray(req.body.i6) && req.body.i6.length > 2) {
-      res.render('index', Object.assign({}, {
+      res.render('try', Object.assign({}, {
           error: {
             i6: 'You can have max 2 call to action buttons'
           }
@@ -189,14 +189,14 @@ router.post('/try', function(req, res, next) {
         req.body));
     } else if (typeof req.body.i6 === 'undefined' || req.body.i6.length ===
       0) {
-      res.render('index', Object.assign({}, {
+      res.render('try', Object.assign({}, {
           error: {
             i6: 'Select atleast one call to action button'
           }
         },
         req.body));
     } else {
-      res.render('index', Object.assign({}, req.body, {
+      res.render('try', Object.assign({}, req.body, {
         i7: (Array.isArray(req.body.i6)) ? req.body.i6.join(',') : req
           .body.i6
       }));
@@ -206,7 +206,7 @@ router.post('/try', function(req, res, next) {
       src: '',
       title: ''
     });
-    res.render('index', req.model);
+    res.render('try', req.model);
   }
 });
 
