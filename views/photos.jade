@@ -8,7 +8,7 @@ if index == '0'
     |&nbsp;for free image hosting
 label(for='i10_#{index}') Image URL
   span=(img.urlError)? ` (${img.urlError})` : ''
-input(id='i10_#{index}', type='url', name='i10[#{index}]', placeholder='Enter url of a self hosted image', area-invalid=(error && error.i10_0)? 'true':'false', value='#{img.src}', required)
+input(id='i10_#{index}', type='url', name='i10[#{index}]', placeholder='Enter url of a self hosted image', area-invalid=(error && error.i10_0)? 'true':'false', value='#{img.src}')
 
 if index == '0'
   pre.
@@ -18,7 +18,7 @@ else
   br
 label(for='i11_#{index}') Image Title
   span=(img.titleError)? ` (${img.titleError})` : ''
-input(id='i11_#{index}', type='text', name='i11[#{index}]', placeholder='Enter image title', area-invalid=(error && error.i11_0)? 'true':'false', value='#{img.title}', required)
+input(id='i11_#{index}', type='text', name='i11[#{index}]', placeholder='Enter image title', area-invalid=(error && error.i11_0)? 'true':'false', value='#{img.title}')
 
 if index == '0'
   pre.

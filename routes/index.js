@@ -166,7 +166,8 @@ router.post('/try', function(req, res, next) {
           console.log('errrr', err);
           res.render('try', req.body); // @TODO: Indicate error.
         } else {
-          res.end(compiledFunction(req.model));
+          console.log(req.model);
+          res.render('success', req.model);
         }
       });
     }
