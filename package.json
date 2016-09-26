@@ -15,6 +15,15 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "pug": "^0.1.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-minifier": "^0.1.4",
+    "gulp-selectors": "^0.1.9"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-minifier": "^0.1.4",
+    "gulp-selectors": "^0.1.9"
   }
 }
