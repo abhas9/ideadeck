@@ -1,0 +1,46 @@
+{
+    "i10": [
+        {
+            "src": "http://s10.postimg.org/ppsv2nwi1/me_r.jpg",
+            "title": "Abhas Tandon"
+        }
+    ],
+    "title": "Abhas Tandon",
+    "about": "Software Engineer",
+    "description": "I can help you in delivering the best web experience",
+    "witty_note": "Don't be shy, ask for help",
+    "footer": "",
+    "ideas": [
+        "<HTML>",
+        "#CSS .ninja {opacity: 0; visibility: hidden;}",
+        "console.error('JS: Awesomeness Overflow');"
+    ],
+    "highlights": [
+        {
+            "title": "ReactJS",
+            "description": "Checkout @github.com/abhas9/sachinspace"
+        },
+        {
+            "title": "ES2015",
+            "description": "Checkout @github.com/abhas9/es6-to-do-list"
+        },
+        {
+            "title": "NodeJS",
+            "description": "Can take care of you back(end) as well."
+        }
+    ],
+    "website": {
+        "title": "Hire Me",
+        "url": "mailto:abhastandon007@gmail.com"
+    },
+    "sharing": true,
+    "images": [
+        {
+            "src": "http://s10.postimg.org/ppsv2nwi1/me_r.jpg",
+            "title": "Abhas Tandon"
+        }
+    ],
+    "location": "xvHGgQvURK-abhas_tandon",
+    "path": "/landing/xvHGgQvURK-abhas_tandon/",
+    "absolutePath": "http://localhost:3000/landing/xvHGgQvURK-abhas_tandon/"
+}

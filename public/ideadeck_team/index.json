@@ -1,0 +1,50 @@
+{
+    "i10": [
+        {
+            "src": "http://s18.postimg.org/qqwlsy7l5/light_bulb.png",
+            "title": "There is beauty in simplicity"
+        }
+    ],
+    "title": "IdeaDeck Team",
+    "about": "Lightweight web-app to generate idea deck with call to action buttons",
+    "description": "Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.",
+    "witty_note": "Support IdeaDeck, buy us a coffee.",
+    "footer": "",
+    "ideas": [
+        "With over 100 million businesses are launched annually.",
+        "Innovators need ways to convey their idea clearly to their audience.",
+        "IdeaDeck: Easily create, host and share your ideas with call to action buttons.",
+        "Works on all devices, ultra-light weight (~ 4 KB) and doesn't require any javascript."
+    ],
+    "highlights": [
+        {
+            "title": "Payment Gateway",
+            "description": "Sell products, collect donations, Become super rich: powered by PayPal."
+        },
+        {
+            "title": "Universal",
+            "description": "Accessible light-weight page that works in all major browsers including Lynx ;)"
+        },
+        {
+            "title": "Open Source",
+            "description": "Checkout out our github and start hacking. Don't forget to star our repo."
+        }
+    ],
+    "website": {
+        "title": "GitHub",
+        "url": "http://github.com/abhas9/ideadeck"
+    },
+    "donate": {
+        "email": "abhastandon007@gmail.com"
+    },
+    "sharing": true,
+    "images": [
+        {
+            "src": "http://s18.postimg.org/qqwlsy7l5/light_bulb.png",
+            "title": "There is beauty in simplicity"
+        }
+    ],
+    "location": "AzbEaxjWS6-ideadeck_team",
+    "path": "/landing/AzbEaxjWS6-ideadeck_team/",
+    "absolutePath": "http://localhost:3000/landing/AzbEaxjWS6-ideadeck_team/"
+}

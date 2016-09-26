@@ -10,9 +10,43 @@ header.a
   p.ah Lightweight web-app to generate idea deck with call to action buttons
 .b
   .c
-    a(href='#')
-      <img src="https://onepagelove.com/wp-content/uploads/2016/03/opl-small-7.jpg" alt="opl-small" class="d">
+    a(href='/abhas_tandon/')
+      #a
       h2
-        Personal Landing page
+        Personal Freelancer
     p
       | Simple landing page to showcase your talent.
+  .c
+    a(href='/super_mario/')
+      #s
+      h2
+        Personal Sell Online
+    p
+      | Sell using PayPal. Show multiple product photos.
+
+  .c
+    a(href='/ideadeck_team/')
+      #h
+      h2
+        Collect Donations
+    p
+      | Lightening fast landing page to collect donations.
+  .cl
+
+  a(href='/try', class='button blue', title='Try now') Try Now
+  a(href='/', class='button blue', title='Back to home') Back to home
+
+  script.
+    function lazyload(src, title, id) {
+      var img = new Image()
+      img.onload = function() {
+          document.getElementById(id).appendChild(img);
+      }
+      img.title = title;
+      img.alt = title;
+      img.src = src;
+      img.className = 'd';
+    }
+    lazyload('a.svg', 'freelancer landing page', 'a');
+    lazyload('s.gif', 'sell online', 's');
+    lazyload('h.png', 'donations landing page', 'h');

@@ -1,0 +1,42 @@
+{
+    "i10": [
+        {
+            "src": "https://s15.postimg.org/ynmtf53ez/mario.png",
+            "title": "Mario"
+        },
+        {
+            "src": "http://s13.postimg.org/3npchqqmv/image.png",
+            "title": "Mario"
+        }
+    ],
+    "title": "Super Mario",
+    "about": " The best-selling video game series in human history",
+    "description": "Rescue the kidnapped Princess Peach from the primary antagonist, Bowser",
+    "witty_note": "Buy The priceless Mario for a very \"Super\" cheap price",
+    "footer": "\"Super Mario\" is a registered trademark of Nintendo of America Inc.",
+    "ideas": [
+        "Over 310 million copies sold worldwide.",
+        "The game consists of eight worlds, each with four sub-levels.",
+        "Jumps on platforms and enemies while avoiding their attacks",
+        "Move to the right of the scrolling screen."
+    ],
+    "highlights": [],
+    "buy": {
+        "email": "wedontknowmariosid@nintendo.com",
+        "cost": "1000"
+    },
+    "sharing": true,
+    "images": [
+        {
+            "src": "https://s15.postimg.org/ynmtf53ez/mario.png",
+            "title": "Mario"
+        },
+        {
+            "src": "http://s13.postimg.org/3npchqqmv/image.png",
+            "title": "Mario"
+        }
+    ],
+    "location": "rOeOt2vlJV-super_mario",
+    "path": "/landing/rOeOt2vlJV-super_mario/",
+    "absolutePath": "http://localhost:3000/landing/rOeOt2vlJV-super_mario/"
+}
