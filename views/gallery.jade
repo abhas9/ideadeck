@@ -1,0 +1,52 @@
+doctype html
+head
+  title IdeaDeck Gallery
+  meta(name='viewport', content='width=device-width,initial-scale=1')
+  meta(name='description', content='Lightweight web-app to generate idea deck with call to action buttons')
+  meta(property='og:image', content='light-bulb.png')
+  link(rel='stylesheet', href='./css/gallery.css')
+header.a
+  h1.ag IdeaDeck
+  p.ah Lightweight web-app to generate idea deck with call to action buttons
+.b
+  .c
+    a(href='/abhas_tandon/')
+      #a
+      h2
+        Personal Freelancer
+    p
+      | Simple landing page to showcase your talent.
+  .c
+    a(href='/super_mario/')
+      #s
+      h2
+        Personal Sell Online
+    p
+      | Sell using PayPal. Show multiple product photos.
+
+  .c
+    a(href='/ideadeck_team/')
+      #h
+      h2
+        Collect Donations
+    p
+      | Lightening fast landing page to collect donations.
+  .cl
+
+  a(href='/try', class='button blue', title='Try now') Try Now
+  a(href='/', class='button blue', title='Back to home') Back to home
+
+  script.
+    function lazyload(src, title, id) {
+      var img = new Image()
+      img.onload = function() {
+          document.getElementById(id).appendChild(img);
+      }
+      img.title = title;
+      img.alt = title;
+      img.src = src;
+      img.className = 'd';
+    }
+    lazyload('a.svg', 'freelancer landing page', 'a');
+    lazyload('s.gif', 'sell online', 's');
+    lazyload('h.png', 'donations landing page', 'h');

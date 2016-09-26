@@ -3,7 +3,7 @@ if (i5 !== 'true')
 else
   label(for='i5a_0') Buzzword(1)
     span=(error && error.i5a_0)? ` (${error.i5a_0})` : ''
-  input#i5a_0(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_0)? 'true':'false', value=(i5a && i5a[0])? i5a[0]:'')
+  input#i5a_0(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_0)? 'true':'false', value=(i5a && i5a[0])? i5a[0]:'', required)
   pre.
     Eg. Universal
   br
@@ -15,7 +15,7 @@ else
   br
   label(for='i5a_1') Buzzword(2)
     span=(error && error.i5a_1)? ` (${error.i5a_1})` : ''
-  input#i5a_1(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_1)? 'true':'false', value=(i5a && i5a[1])? i5a[1]:'')
+  input#i5a_1(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_1)? 'true':'false', value=(i5a && i5a[1])? i5a[1]:'', required)
   pre.
     Eg. Universal
   br
@@ -27,7 +27,7 @@ else
   br
   label(for='i5a_2') Buzzword(3)
     span=(error && error.i5a_2)? ` (${error.i5a_2})` : ''
-  input#i5a_2(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_2)? 'true':'false', value=(i5a && i5a[2])? i5a[2]:'')
+  input#i5a_2(type='text', name='i5a', size=15, placeholder='', area-invalid=(error && error.i5a_2)? 'true':'false', value=(i5a && i5a[2])? i5a[2]:'', required)
   pre.
     Eg. Universal
   br
@@ -38,5 +38,3 @@ else
     Eg. Accessible light-weight page that works in all major browsers including Lynx ;)
   br
 input(type='hidden', name='i5', value=i5)
-
-  

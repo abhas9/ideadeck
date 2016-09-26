@@ -9,12 +9,17 @@ const compiledFunction = pug.compileFile(__dirname + '/template.jade');
 /* Try now */
 router.get('/try', function(req, res, next) {
   helper.setInitialModel(req, res);
-  res.render('index', req.model);
+  res.render('try', req.model);
+});
+
+/* Gallery */
+router.get('/gallery', function(req, res, next) {
+  res.render('gallery');
 });
 
 router.post('/try', function(req, res, next) {
   helper.setInitialModel(req, res);
-  if(req.headers['content-type'] === 'application/json') {
+  if (req.headers['content-type'] === 'application/json') {
     return ajaxRender(req, res, next);
   }
 
@@ -132,17 +137,19 @@ router.post('/try', function(req, res, next) {
       });
     }
 
-    if(Array.isArray(req.body.i10)) {
+    if (Array.isArray(req.body.i10)) {
       req.body.i10.forEach(function(val, index) {
-        if(val === '') {
-          req.model.i10[index].srcError = error['i10_' + index] ='required';
+        if (val === '') {
+          req.model.i10[index].urlError = error['i10_' + index] =
+            'required';
         }
       });
     }
-    if(Array.isArray(req.body.i11)) {
+    if (Array.isArray(req.body.i11)) {
       req.body.i11.forEach(function(val, index) {
-        if(val === '') {
-          req.model.i10[index].titleError = error['i11_' + index] ='required';
+        if (val === '') {
+          req.model.i10[index].titleError = error['i11_' + index] =
+            'required';
         }
       });
     }
@@ -150,30 +157,32 @@ router.post('/try', function(req, res, next) {
     //*********************//
     if (Object.keys(error).length !== 0) {
       console.log('***** form had errors: ', error);
-      res.render('index', Object.assign({},
-        {error: error}, req.body, req.model));
+      res.render('try', Object.assign({}, {
+        error: error
+      }, req.body, req.model));
     } else { // generate
       helper.mixBodyInModel(req, res, function(err) {
-        if(err) {
+        if (err) {
           console.log('errrr', err);
-          res.render('index', req.body); // @TODO: Indicate error.
+          res.render('try', req.body); // @TODO: Indicate error.
         } else {
-          res.end(compiledFunction(req.model));
+          console.log(req.model);
+          res.render('success', req.model);
         }
       });
     }
     //*********************//
   } else if (req.body.hasOwnProperty('add_buzzwords')) {
-    res.render('index', Object.assign({}, req.body, {
+    res.render('try', Object.assign({}, req.body, {
       i5: 'true'
     }));
   } else if (req.body.hasOwnProperty('add_subscribe')) {
-    res.render('index', Object.assign({}, req.body, {
+    res.render('try', Object.assign({}, req.body, {
       i9: 'true'
     }));
   } else if (req.body.hasOwnProperty('add_call_to_action')) {
     if (req.body.i6 && Array.isArray(req.body.i6) && req.body.i6.length > 2) {
-      res.render('index', Object.assign({}, {
+      res.render('try', Object.assign({}, {
           error: {
             i6: 'You can have max 2 call to action buttons'
           }
@@ -181,48 +190,43 @@ router.post('/try', function(req, res, next) {
         req.body));
     } else if (typeof req.body.i6 === 'undefined' || req.body.i6.length ===
       0) {
-      res.render('index', Object.assign({}, {
+      res.render('try', Object.assign({}, {
           error: {
             i6: 'Select atleast one call to action button'
           }
         },
         req.body));
     } else {
-      res.render('index', Object.assign({}, req.body, {
+      res.render('try', Object.assign({}, req.body, {
         i7: (Array.isArray(req.body.i6)) ? req.body.i6.join(',') : req
           .body.i6
       }));
     }
   } else if (req.body.hasOwnProperty('add_image')) {
-    req.model.i10.push({src:'', title:''});
-    res.render('index', req.model);
+    req.model.i10.push({
+      src: '',
+      title: ''
+    });
+    res.render('try', req.model);
   }
 });
 
-router.get('/landing/:path/edit', function(req, res){
+router.get('/landing/:path/edit', function(req, res) {
   res.end('this will let you edit later');
 });
 
 /* Donation */
-router.get('/donate/:id', function(req, res, next) {
+router.get('/donate/', function(req, res, next) {
   /* Decide redirect based on stored configuration */
   res.redirect(
-    'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=foo@gmail.com&item_name=Support+IdeaDeck'
-  );
-});
-
-/* Buy now */
-router.get('/buy/:id', function(req, res, next) {
-  /* Decide redirect based on stored configuration */
-  res.redirect(
-    'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=foo@gmail.com&item_name=Support+IdeaDeck&amount=5&currency_code=USD'
+    'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=abhastandon007@gmail.com&item_name=Support+IdeaDeck'
   );
 });
 
 /* POST subscribe form */
-router.post('/subscribe/:id', function(req, res, next) {
+router.post('/subscribe/:id?', function(req, res, next) {
   /* Decide redirect based on stored configuration */
-  var id = req.params.id;
+  var id = (req.params.id) ? req.params.id : 'abhastandon007@gmail.com';
   res.redirect(307,
     'http://formspree.io/' + id
   );
@@ -235,41 +239,42 @@ router.get('/test', function(req, res, next) {
   });
   // make this as single call later
   var a = compiledFunction({
-    absolutePath : "https://github.com/IdeaDeck/#",
+    absolutePath: "https://github.com/IdeaDeck/#",
     about: "Lightweight web-app to generate idea deck with call to action buttons",
     description: 'Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.',
-    ideas: [ 'Over 100 million businesses are launched annually.',
-            'Innovators need ways to convey their idea clearly to their audience.',
-            'IdeaDeck: Easily create, host and share your ideas with call to action buttons.',
-            "Works on all devices, ultra-light weight (~ 4 KB) and doesn't require any javascript."], // exactly 4 - no more, no less
-    highlights: [ {
-            "title" : "Highlight 1",
-            "description" : " Some stuff to boost here"
-        } , {
-            "title" : "Highlight 2",
-            "description" : " Some stuff to boost here"
-        } , {
-            "title" : "Highlight 3",
-            "description" : " Some stuff to boost here"
-        }],
+    ideas: ['Over 100 million businesses are launched annually.',
+      'Innovators need ways to convey their idea clearly to their audience.',
+      'IdeaDeck: Easily create, host and share your ideas with call to action buttons.',
+      "Works on all devices, ultra-light weight (~ 4 KB) and doesn't require any javascript."
+    ], // exactly 4 - no more, no less
+    highlights: [{
+      "title": "Highlight 1",
+      "description": " Some stuff to boost here"
+    }, {
+      "title": "Highlight 2",
+      "description": " Some stuff to boost here"
+    }, {
+      "title": "Highlight 3",
+      "description": " Some stuff to boost here"
+    }],
     website: { // can be undefined
-        'title': 'try',
-        'url': 'http://foo.com'
+      'title': 'try',
+      'url': 'http://foo.com'
     },
     donate: { // can be undefined
-        'email': 'abhastandon007@gmail.com'
+      'email': 'abhastandon007@gmail.com'
     },
     subscribe: {
-        "email": 'email@gmail.com'
+      "email": 'email@gmail.com'
     },
-    images : [
-        { "title": "mario",
-        "src" : "mario.png"}
-    ],
+    images: [{
+      "title": "mario",
+      "src": "mario.png"
+    }],
     footer: 'Test test',
-    witty_note : "Try IdeaDeck For Free, Or Buy Us A Coffee :)",
-    sharing : true,
-    title : "IdeaDeck"
+    witty_note: "Try IdeaDeck For Free, Or Buy Us A Coffee :)",
+    sharing: true,
+    title: "IdeaDeck"
   });
   console.log(a);
   res.write(a);

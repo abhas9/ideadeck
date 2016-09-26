@@ -13,21 +13,21 @@ header.a
   form#f1.c(method='POST', action='/try')
     label(for='i1') What is it called
       span=(error && error.i1)? ` (${error.i1})` : ''
-    input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1)
+    input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1, required, autocorrect='off', spellcheck='false')
     pre.
       Eg. IdeaDeck
 
     br
     label(for='i2') What is it all about
-      span=(error && error.i1)? ` (${error.i2})` : ''
-    input#i2(type='text', name='i2', size=75, placeholder='Is it a bird? Is it a plane? Is it Superman??', area-invalid=(error && error.i2)? 'true':'false', value=i2)
+      span=(error && error.i2)? ` (${error.i2})` : ''
+    input#i2(type='text', name='i2', size=75, placeholder='Is it a bird? Is it a plane? Is it Superman??', area-invalid=(error && error.i2)? 'true':'false', value=i2, required)
     pre.
       Eg. Lightweight web-app to generate idea deck with call to action buttons
 
     br
     label(for='i3') What does it do:
-      span=(error && error.i1)? ` (${error.i3})` : ''
-    input#i3(type='text', name='i3', size=90, placeholder='Explain why was the product/idea developed?', area-invalid=(error && error.i3)? 'true':'false', value=i3)
+      span=(error && error.i3)? ` (${error.i3})` : ''
+    input#i3(type='text', name='i3', size=90, placeholder='Explain why was the product/idea developed?', area-invalid=(error && error.i3)? 'true':'false', value=i3, required)
     pre.
       Eg. Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.
 
@@ -35,7 +35,7 @@ header.a
     label(for='i4') Explain your idea/product in a short paragraph or 3-4 points:
       span=(error && error.i4)? ` (${error.i4})` : ''
     br
-    textarea#i4(name='i4', rows=4, cols=75, placeholder='Enter product/idea details', area-invalid=(error && error.i4)? 'true':'false')=i4
+    textarea#i4(name='i4', rows=4, cols=75, placeholder='Enter product/idea details', area-invalid=(error && error.i4)? 'true':'false', required)=i4
     pre.
       Eg.
       With over 100 million businesses are launched annually.
@@ -47,25 +47,30 @@ header.a
 
     div
       include buzzwords
-    br
 
     br
     div
       if (!i7)
         fieldset
           legend Select primary call to action buttons (Max two)
-            span=(error && error.i6)? ` Error: ${error.i6}` : ''
-          input#i6a(type='checkbox', name='i6', value='website', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('website')>=0) )
+            span#ei6=(error && error.i6)? ` (${error.i6})` : ''
+          input#i6a(type='checkbox', class='i6', name='i6', value='website', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('website')>=0) )
           label(for='i6a') Website
-          input#i6b(type='checkbox', name='i6', value='buy', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('buy')>=0) )
+          input#i6b(type='checkbox', class='i6', name='i6', value='buy', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('buy')>=0) )
           label(for='i6b') Buy
-          input#i6c(type='checkbox', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
+          input#i6c(type='checkbox', class='i6', name='i6', value='donate', area-invalid=(error && error.i6)? 'true':'false', checked=(i6 && i6.indexOf('donate')>=0) )
           label(for='i6c') Donate
         input(type='hidden', name='i7', value=i7)
         input(type='submit', class='s', name='add_call_to_action', data-field="i6", value='Add call to action buttons')
       else
         include callForAction
+
     br
+    label(for='i12') Enter call to action button text:
+      span=(error && error.i12)? ` (${error.i12})` : ''
+    input#i12(type='text', name='i12', size=90, placeholder='Tell your audience why should they buy/donate or visit your website?', area-invalid=(error && error.i12)? 'true':'false', value=i12)
+    pre.
+      Eg. Try IdeaDeck for free now !!!
 
     br
     input#i8(type='checkbox', name='i8', value='i8', checked=(i8))
@@ -83,6 +88,13 @@ header.a
       input(type='hidden', name='i10_l', value='#{i10.length}')
 
       input(type='submit', class='s', value='Add another image' name='add_image', data-field="i10_l", data-method='apnd')
+
+    br
+    label(for='i13') Enter some footer text:
+      span=(error && error.i13)? ` (${error.i13})` : ''
+    input#i13(type='text', name='i13', size=90, placeholder='Include your optional fotter text here', area-invalid=(error && error.i13)? 'true':'false', value=i13)
+    pre.
+      Eg. Developed using IdeaDeck
 
     br
     input#g(type='submit', value='Generate' name='generate')
