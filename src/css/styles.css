@@ -153,7 +153,9 @@ input, .button, button {
 input {
   text-align: left;
 }
-
+input[type='submit'] {
+  text-align: center;
+}
 .call-for-action-widget label {
   display: block;
   font-size: medium;
@@ -179,7 +181,9 @@ input {
     font-size: large;
     text-transform: capitalize;
 }
-
+.call-for-action-text a {
+  color: #333;
+}
 .button.inverted {
     color: #fff;
 }
