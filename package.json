@@ -15,6 +15,7 @@
     "gulp": "^3.9.1",
     "gulp-minifier": "^0.1.4",
     "gulp-selectors": "^0.1.9",
+    "helmet": "^2.2.0",
     "jade": "~1.11.0",
     "jstransformer-uglify-js": "^1.1.1",
     "morgan": "~1.7.0",
