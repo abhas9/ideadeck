@@ -11,30 +11,30 @@ header.a
   form#f1.c(method='POST', action='/try')
     label(for='i1') What is it called
       span=(error && error.i1)? ` (${error.i1})` : ''
-    input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1, required, autocorrect='off', spellcheck='false')
-    pre.
+    input#i1(type='text', name='i1', size=30, placeholder='Enter name of your product/idea', area-invalid=(error && error.i1)? 'true':'false', value=i1, required, autocorrect='off', spellcheck='false', autocomplete='off', aria-describedby='di1')
+    pre#di1.
       Eg. IdeaDeck
 
     br
     label(for='i2') What is it all about
       span=(error && error.i2)? ` (${error.i2})` : ''
-    input#i2(type='text', name='i2', size=75, placeholder='Is it a bird? Is it a plane? Is it Superman??', area-invalid=(error && error.i2)? 'true':'false', value=i2, required)
-    pre.
+    input#i2(type='text', name='i2', size=75, placeholder='Is it a bird? Is it a plane? Is it Superman??', area-invalid=(error && error.i2)? 'true':'false', value=i2, required, autocomplete='off', aria-describedby='di2')
+    pre#di2.
       Eg. Lightweight web-app to generate idea deck with call to action buttons
 
     br
     label(for='i3') What does it do
       span=(error && error.i3)? ` (${error.i3})` : ''
-    input#i3(type='text', name='i3', size=90, placeholder='Explain why was the product/idea developed?', area-invalid=(error && error.i3)? 'true':'false', value=i3, required)
-    pre.
+    input#i3(type='text', name='i3', size=90, placeholder='Explain why was the product/idea developed?', area-invalid=(error && error.i3)? 'true':'false', value=i3, required, autocomplete='off', aria-describedby='di3')
+    pre#di3.
       Eg. Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.
 
     br
     label(for='i4') Explain your idea/product in a short paragraph or 3-4 points
       span=(error && error.i4)? ` (${error.i4})` : ''
     br
-    textarea#i4(name='i4', rows=4, cols=75, placeholder='Enter product/idea details', area-invalid=(error && error.i4)? 'true':'false', required)=i4
-    pre.
+    textarea#i4(name='i4', rows=4, cols=75, placeholder='Enter product/idea details', area-invalid=(error && error.i4)? 'true':'false', required, autocomplete='off', aria-describedby='di4')=i4
+    pre#di4.
       Eg.
       With over 100 million businesses are launched annually.
       Innovators need ways to convey their idea clearly to their audience.
@@ -66,8 +66,8 @@ header.a
     br
     label(for='i12') Enter call to action button text
       span=(error && error.i12)? ` (${error.i12})` : ''
-    input#i12(type='text', name='i12', size=90, placeholder='Tell your audience why should they buy/donate or visit your website?', area-invalid=(error && error.i12)? 'true':'false', value=i12)
-    pre.
+    input#i12(type='text', name='i12', size=90, placeholder='Tell your audience why should they buy/donate or visit your website?', area-invalid=(error && error.i12)? 'true':'false', value=i12, autocomplete='off', aria-describedby='di12')
+    pre#di12.
       Eg. Try IdeaDeck for free now !!!
 
     br
@@ -90,8 +90,8 @@ header.a
     br
     label(for='i13') Enter some footer text
       span=(error && error.i13)? ` (${error.i13})` : ''
-    input#i13(type='text', name='i13', size=90, placeholder='Include your optional fotter text here', area-invalid=(error && error.i13)? 'true':'false', value=i13)
-    pre.
+    input#i13(type='text', name='i13', size=90, placeholder='Include your optional fotter text here', area-invalid=(error && error.i13)? 'true':'false', value=i13, autocomplete='off', aria-describedby='di13')
+    pre#d13.
       Eg. Developed using IdeaDeck
 
     br
