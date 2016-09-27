@@ -239,7 +239,13 @@ router.post('/try', function(req, res, next) {
 });
 
 router.get('/landing/:path/edit', function(req, res) {
-  res.end('this will let you edit later');
+  helper.createModel(req, res, function(err) {
+    if(err) {
+      //redirecting to /try
+      return res.redirect('/try');
+    }
+    res.render('try', req.model);
+  });
 });
 
 /* Donation */
