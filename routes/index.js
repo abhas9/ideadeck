@@ -109,6 +109,14 @@ router.post('/try', function(req, res, next) {
       });
     }
 
+    if (req.body.i7 && req.body.i7.split(',').indexOf('buy') >= 0 && !
+      helper.validateEmail(req.body
+        .i7c)) {
+      error = Object.assign({}, error, {
+        i7c: 'Enter a valid email address'
+      });
+    }
+
     if (req.body.i7 && req.body.i7.split(',').indexOf('buy') >= 0 && req.body
       .i7d === '') {
       error = Object.assign({}, error, {
@@ -124,9 +132,25 @@ router.post('/try', function(req, res, next) {
       });
     }
 
+    if (req.body.i7 && req.body.i7.split(',').indexOf('donate') >= 0 && !
+      helper.validateEmail(req
+        .body
+        .i7e)) {
+      error = Object.assign({}, error, {
+        i7e: 'Enter a valid email address'
+      });
+    }
+
     if (req.body.i9 && req.body.i9 === 'true' && req.body.i9a === '') {
       error = Object.assign({}, error, {
         i9a: 'required'
+      });
+    }
+
+    if (req.body.i9 && req.body.i9 === 'true' && !helper.validateEmail(req
+        .body.i9a)) {
+      error = Object.assign({}, error, {
+        i9a: 'Enter a valid email address'
       });
     }
 
