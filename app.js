@@ -56,8 +56,10 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
+  var message = err.message ||
+    'Something went wrong at our servers. Please wait while our awesome engineers fix it.';
   res.render('error', {
-    message: 'Something went wrong at our servers. Please wait while our awesome engineers fix it.',
+    message: message,
     error: {}
   });
 });
