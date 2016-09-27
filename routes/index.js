@@ -54,29 +54,16 @@ router.post('/try', function(req, res, next) {
           i5a_0: 'required'
         });
       }
-      if (req.body.i5a && req.body.i5b[0] === '') {
-        error = Object.assign({}, error, {
-          i5b_0: 'required'
-        });
-      }
+
       if (req.body.i5a && req.body.i5a[1] === '') {
         error = Object.assign({}, error, {
           i5a_1: 'required'
         });
       }
-      if (req.body.i5b && req.body.i5b[1] === '') {
-        error = Object.assign({}, error, {
-          i5b_1: 'required'
-        });
-      }
+
       if (req.body.i5a && req.body.i5a[2] === '') {
         error = Object.assign({}, error, {
           i5a_2: 'required'
-        });
-      }
-      if (req.body.i5b && req.body.i5b[2] === '') {
-        error = Object.assign({}, error, {
-          i5b_2: 'required'
         });
       }
     }
@@ -90,6 +77,12 @@ router.post('/try', function(req, res, next) {
     if (req.body.i6 && Array.isArray(req.body.i6) && req.body.i6.length > 2) {
       error = Object.assign({}, error, {
         i6: 'You can have max 2 call to action buttons'
+      });
+    }
+
+    if (req.body.i7 === '') {
+      error = Object.assign({}, error, {
+        i6: 'Add atleast one call to action button'
       });
     }
 
@@ -173,31 +166,29 @@ router.post('/try', function(req, res, next) {
     }
     //*********************//
   } else if (req.body.hasOwnProperty('add_buzzwords')) {
-    res.render('try', Object.assign({}, req.body, {
+    res.render('try', Object.assign({}, req.body, req.model, {
       i5: 'true'
     }));
   } else if (req.body.hasOwnProperty('add_subscribe')) {
-    res.render('try', Object.assign({}, req.body, {
+    res.render('try', Object.assign({}, req.body, req.model, {
       i9: 'true'
     }));
   } else if (req.body.hasOwnProperty('add_call_to_action')) {
     if (req.body.i6 && Array.isArray(req.body.i6) && req.body.i6.length > 2) {
-      res.render('try', Object.assign({}, {
-          error: {
-            i6: 'You can have max 2 call to action buttons'
-          }
-        },
-        req.body));
+      res.render('try', Object.assign({}, req.body, req.model, {
+        error: {
+          i6: 'You can have max 2 call to action buttons'
+        }
+      }));
     } else if (typeof req.body.i6 === 'undefined' || req.body.i6.length ===
       0) {
-      res.render('try', Object.assign({}, {
-          error: {
-            i6: 'Select atleast one call to action button'
-          }
-        },
-        req.body));
+      res.render('try', Object.assign({}, req.body, req.model, {
+        error: {
+          i6: 'Select atleast one call to action button'
+        }
+      }));
     } else {
-      res.render('try', Object.assign({}, req.body, {
+      res.render('try', Object.assign({}, req.body, req.model, {
         i7: (Array.isArray(req.body.i6)) ? req.body.i6.join(',') : req
           .body.i6
       }));
@@ -207,7 +198,10 @@ router.post('/try', function(req, res, next) {
       src: '',
       title: ''
     });
-    res.render('try', req.model);
+
+    res.render('try', Object.assign({}, {
+      error: error
+    }, req.body, req.model));
   }
 });
 

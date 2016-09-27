@@ -28,8 +28,14 @@ p {
     width: 80%;
     margin: 1em auto;
 }
-.ag {
+.a a, .a a:visited {
   text-decoration: none;
+  color: #000;
+}
+@media only screen and (max-width: 768px) {
+  h1 {
+      font-size: 2.2rem;
+  }
 }
 input[type="email"], input[type="text"], input[type="url"], textarea, select, input[type="number"] {
     height: 38px;
