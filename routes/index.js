@@ -54,29 +54,16 @@ router.post('/try', function(req, res, next) {
           i5a_0: 'required'
         });
       }
-      if (req.body.i5a && req.body.i5b[0] === '') {
-        error = Object.assign({}, error, {
-          i5b_0: 'required'
-        });
-      }
+
       if (req.body.i5a && req.body.i5a[1] === '') {
         error = Object.assign({}, error, {
           i5a_1: 'required'
         });
       }
-      if (req.body.i5b && req.body.i5b[1] === '') {
-        error = Object.assign({}, error, {
-          i5b_1: 'required'
-        });
-      }
+
       if (req.body.i5a && req.body.i5a[2] === '') {
         error = Object.assign({}, error, {
           i5a_2: 'required'
-        });
-      }
-      if (req.body.i5b && req.body.i5b[2] === '') {
-        error = Object.assign({}, error, {
-          i5b_2: 'required'
         });
       }
     }
