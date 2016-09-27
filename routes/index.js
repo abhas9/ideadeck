@@ -3,6 +3,7 @@ var router = express.Router();
 var ajaxRender = require('../controllers/partial-form-renderer');
 var helper = require('../lib/helper');
 
+
 const pug = require('pug');
 const compiledFunction = pug.compileFile(__dirname + '/template.jade');
 
@@ -99,6 +100,14 @@ router.post('/try', function(req, res, next) {
       .i7b === '') {
       error = Object.assign({}, error, {
         i7b: 'required'
+      });
+    }
+
+    if (req.body.i7 && req.body.i7.split(',').indexOf('website') >= 0 &&
+      !helper.validateURL(req.body
+        .i7b)) {
+      error = Object.assign({}, error, {
+        i7b: 'Enter a valid website URL'
       });
     }
 
