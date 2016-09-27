@@ -3,6 +3,7 @@ var router = express.Router();
 var ajaxRender = require('../controllers/partial-form-renderer');
 var helper = require('../lib/helper');
 
+
 const pug = require('pug');
 const compiledFunction = pug.compileFile(__dirname + '/template.jade');
 
@@ -102,10 +103,26 @@ router.post('/try', function(req, res, next) {
       });
     }
 
+    if (req.body.i7 && req.body.i7.split(',').indexOf('website') >= 0 &&
+      !helper.validateURL(req.body
+        .i7b)) {
+      error = Object.assign({}, error, {
+        i7b: 'Enter a valid website URL'
+      });
+    }
+
     if (req.body.i7 && req.body.i7.split(',').indexOf('buy') >= 0 && req.body
       .i7c === '') {
       error = Object.assign({}, error, {
         i7c: 'required'
+      });
+    }
+
+    if (req.body.i7 && req.body.i7.split(',').indexOf('buy') >= 0 && !
+      helper.validateEmail(req.body
+        .i7c)) {
+      error = Object.assign({}, error, {
+        i7c: 'Enter a valid email address'
       });
     }
 
@@ -124,9 +141,25 @@ router.post('/try', function(req, res, next) {
       });
     }
 
+    if (req.body.i7 && req.body.i7.split(',').indexOf('donate') >= 0 && !
+      helper.validateEmail(req
+        .body
+        .i7e)) {
+      error = Object.assign({}, error, {
+        i7e: 'Enter a valid email address'
+      });
+    }
+
     if (req.body.i9 && req.body.i9 === 'true' && req.body.i9a === '') {
       error = Object.assign({}, error, {
         i9a: 'required'
+      });
+    }
+
+    if (req.body.i9 && req.body.i9 === 'true' && !helper.validateEmail(req
+        .body.i9a)) {
+      error = Object.assign({}, error, {
+        i9a: 'Enter a valid email address'
       });
     }
 
@@ -219,15 +252,18 @@ router.get('/donate/', function(req, res, next) {
 
 /* POST subscribe form */
 router.post('/subscribe/:id?', function(req, res, next) {
-  /* Decide redirect based on stored configuration */
   var id = (req.params.id) ? req.params.id : 'abhastandon007@gmail.com';
+  if (!helper.validateEmail(req.body.email)) {
+    var err = new Error('Please enter a valid email address to subscribe');
+    err.status = 400;
+    return next(err);
+  }
   res.redirect(307,
     'http://formspree.io/' + id
   );
 });
 
 router.get('/test', function(req, res, next) {
-  /* Decide redirect based on stored configuration */
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });

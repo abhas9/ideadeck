@@ -123,7 +123,7 @@ input[type="checkbox"]+label {
   background-color: #5cb85c;
   border-color: #5cb85c;
 }
-#g:hover {
+#g:hover, #g:focus {
   background-color: #449d44;
   border-color: #449d44;
 }
