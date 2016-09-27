@@ -80,6 +80,12 @@ router.post('/try', function(req, res, next) {
       });
     }
 
+    if (req.body.i7 === '') {
+      error = Object.assign({}, error, {
+        i6: 'Add atleast one call to action button'
+      });
+    }
+
     if (req.body.i7 && req.body.i7.split(',').indexOf('website') >= 0 &&
       req.body
       .i7a === '') {
