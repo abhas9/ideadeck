@@ -263,20 +263,22 @@ router.post('/subscribe/:id?', function(req, res, next) {
   );
 });
 
+/*
+// Uncomment for testing
 router.get('/test', function(req, res, next) {
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });
   // make this as single call later
   var a = compiledFunction({
-    absolutePath: "https://github.com/IdeaDeck/#",
+    absolutePath: "https://github.com/ideaDeck/#",
     about: "Lightweight web-app to generate idea deck with call to action buttons",
     description: 'Helping innovators, entrepreneurs, and non-profits clearly and concisely explain their idea and product.',
     ideas: ['Over 100 million businesses are launched annually.',
       'Innovators need ways to convey their idea clearly to their audience.',
       'IdeaDeck: Easily create, host and share your ideas with call to action buttons.',
       "Works on all devices, ultra-light weight (~ 4 KB) and doesn't require any javascript."
-    ], // exactly 4 - no more, no less
+    ], // exactly 3 - no more, no less
     highlights: [{
       "title": "Highlight 1",
       "description": " Some stuff to boost here"
@@ -292,7 +294,7 @@ router.get('/test', function(req, res, next) {
       'url': 'http://foo.com'
     },
     donate: { // can be undefined
-      'email': 'abhastandon007@gmail.com'
+      'email': 'foo@gmail.com'
     },
     subscribe: {
       "email": 'email@gmail.com'
@@ -310,5 +312,6 @@ router.get('/test', function(req, res, next) {
   res.write(a);
   res.end();
 });
+*/
 
 module.exports = router;

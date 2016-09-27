@@ -106,7 +106,6 @@ header.a
           var b, c;
           if (a.readyState != 'interactive' || !a.getElementsByClassName || !window
             .XMLHttpRequest) {
-            console.log('returning');
             return;
           }
           a.forms[0].onsubmit = d;
@@ -154,7 +153,6 @@ header.a
                   var elem = document.createElement('div');
                   elem.innerHTML = this.responseText + '<br/>';
                   b.insertBefore(elem, c);
-                  console.log(elem.childNodes);
                 } else {
                   b.innerHTML = this.responseText;
                 }
@@ -170,7 +168,6 @@ header.a
                     iel[i].setAttribute('area-invalid', 'true');
                   }
                 }
-                console.log('ignoring json response over ajax:::\n', this.responseText);
               }
             }
           };
