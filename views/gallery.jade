@@ -36,17 +36,18 @@ header.a
   a(href='/try', class='button blue', title='Try now') Try Now
   a(href='/', class='button blue', title='Back to home') Back to home
 
-  script.
-    function lazyload(src, title, id) {
-      var img = new Image()
-      img.onload = function() {
-          document.getElementById(id).appendChild(img);
+  script
+    :uglify-js
+      function lazyload(src, title, id) {
+        var img = new Image()
+        img.onload = function() {
+            document.getElementById(id).appendChild(img);
+        }
+        img.title = title;
+        img.alt = title;
+        img.src = src;
+        img.className = 'd';
       }
-      img.title = title;
-      img.alt = title;
-      img.src = src;
-      img.className = 'd';
-    }
-    lazyload('a.gif', 'freelancer landing page', 'a');
-    lazyload('s.gif', 'sell online', 's');
-    lazyload('h.gif', 'donations landing page', 'h');
+      lazyload('a.gif', 'freelancer landing page', 'a');
+      lazyload('s.gif', 'sell online', 's');
+      lazyload('h.gif', 'donations landing page', 'h');

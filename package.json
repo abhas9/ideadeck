@@ -12,13 +12,14 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.13.4",
-    "jade": "~1.11.0",
-    "morgan": "~1.7.0",
-    "pug": "^0.1.0",
-    "serve-favicon": "~2.3.0",
     "gulp": "^3.9.1",
     "gulp-minifier": "^0.1.4",
-    "gulp-selectors": "^0.1.9"
+    "gulp-selectors": "^0.1.9",
+    "jade": "~1.11.0",
+    "jstransformer-uglify-js": "^1.1.1",
+    "morgan": "~1.7.0",
+    "pug": "^0.1.0",
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
