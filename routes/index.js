@@ -219,15 +219,18 @@ router.get('/donate/', function(req, res, next) {
 
 /* POST subscribe form */
 router.post('/subscribe/:id?', function(req, res, next) {
-  /* Decide redirect based on stored configuration */
   var id = (req.params.id) ? req.params.id : 'abhastandon007@gmail.com';
+  if (!helper.validateEmail(req.body.email)) {
+    var err = new Error('Please enter a valid email address to subscribe');
+    err.status = 400;
+    return next(err);
+  }
   res.redirect(307,
     'http://formspree.io/' + id
   );
 });
 
 router.get('/test', function(req, res, next) {
-  /* Decide redirect based on stored configuration */
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });
