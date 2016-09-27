@@ -31,6 +31,15 @@ p {
     margin: 1em auto;
 }
 
+.a a, .a a:visited {
+  text-decoration: none;
+  color: #000;
+}
+@media only screen and (max-width: 768px) {
+  h1 {
+      font-size: 2.2rem;
+  }
+}
 .b p {
   font-size: 1em;
 }

@@ -31,6 +31,11 @@ p {
     margin: 1em auto;
 }
 
+@media only screen and (max-width: 768px) {
+  h1 {
+      font-size: 2.2rem;
+  }
+}
 #g {
   width: 100%;
   background-color: #5cb85c;
