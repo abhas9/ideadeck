@@ -65,7 +65,7 @@ a, a:visited {
   transition: all 1s;
 }
 .c:hover .d{
-  opacity: .75;
+  opacity: 1;
 }
 h2 {
   color: #333;

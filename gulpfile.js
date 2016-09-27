@@ -46,7 +46,7 @@ gulp.task('minifyCSS', function() {
 });
 
 gulp.task('images', function() {
-  var imgSrc = './src/**/*.+(jpg|png|svg)',
+  var imgSrc = './src/**/*.+(jpg|png|svg|gif)',
     imgDst = dest;
   return gulp.src(imgSrc)
     .pipe(imagemin())
