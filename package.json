@@ -28,5 +28,8 @@
     "gulp-imagemin": "^3.0.3",
     "gulp-minifier": "^0.1.4",
     "gulp-selectors": "^0.1.9"
+  },
+  "engines": {
+    "node": "6.6.0"
   }
 }
