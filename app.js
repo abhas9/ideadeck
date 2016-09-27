@@ -5,11 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
+var helmet = require('helmet');
 
 var routes = require('./routes/index');
 
 var app = express();
 app.use(compression());
+app.use(helmet());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +26,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/landing', express.static(path.join(__dirname, process.env.PERSIST_DIR || 'landingPages')));
+app.use('/landing', express.static(path.join(__dirname, process.env.PERSIST_DIR ||
+  'landingPages')));
 
 app.use('/', routes);
 

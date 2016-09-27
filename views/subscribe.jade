@@ -3,5 +3,5 @@ if (i9 !== 'true')
 else
   label(for='i9a') Email address (to be notified for new subscriptions)
     span=(error && error.i9a)? ` (${error.i9a})` : ''
-  input#i9a(type='email', name='i9a', placeholder='you@domail.tdl', area-invalid=(error && error.i9a)? 'true':'false', value=i9a)
+  input#i9a(type='email', name='i9a', placeholder='you@domail.tdl', area-invalid=(error && error.i9a)? 'true':'false', value=i9a, autocomplete='email')
 input(type='hidden', name='i9', value=i9)
