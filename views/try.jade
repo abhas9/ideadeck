@@ -3,7 +3,7 @@ head
   title Try IdeaDeck
   meta(name='viewport', content='width=device-width,initial-scale=1')
   meta(name='description', content='Lightweight web-app to generate idea deck with call to action buttons')
-  link(rel='stylesheet', href='./css/form.css')
+  link(rel='stylesheet', href='/css/form.css')
 header.a
   a(href='/',title='IdeaDeck home')
     h1.ag IdeaDeck
@@ -171,7 +171,7 @@ header.a
               }
             }
           };
-          x.open('POST', 'try', true);
+          x.open('POST', '/try', true);
           x.setRequestHeader("Content-type", "application/json");
           x.send(JSON.stringify(p));
 
