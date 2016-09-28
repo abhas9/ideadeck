@@ -75,7 +75,7 @@ html(prefix='og: http://ogp.me/ns#')
 			div(class='call-for-action action-count-' + widgetCount)
 				if (subscribe)
 					.call-for-action-widget.wdiget-1
-						form(action='/subscribe/#{subscribe.email}', method='POST')
+						form(action='/subscribe/' + subscribe.email, method='POST')
 							label(for='email') What's your Email address?
 							input#email.subscribe(type='email', name='email', required='', aria-required='true', placeholder='you@yourdomain.tld', autocorrect='off')
 							input.submit(type='submit', title='subscribe', value='Subscribe')
