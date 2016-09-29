@@ -72,8 +72,13 @@ a, a:visited {
 .c:hover .d{
   opacity: 1;
 }
-h2 {
+.c:hover img {
+  cursor: pointer;
+}
+h2 a {
   color: #333;
+}
+h2 {
   margin: .2rem;
   font-size: 1.5rem;
   font-weight: lighter;

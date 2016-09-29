@@ -11,25 +11,22 @@ header.a
   p.ah Lightweight web-app to generate idea deck with call to action buttons
 .b
   .c
-    a(href='/abhas_tandon/', target='_blank')
-      #a
-      h2
-        Personal Freelancer
+    #a
+    h2
+      a(href='/abhas_tandon/', target='_blank') Freelancer
     p
       | Simple landing page to showcase your talent.
   .c
-    a(href='/super_mario/', target='_blank')
       #s
       h2
-        Personal Sell Online
-    p
-      | Sell using PayPal. Show multiple product photos.
+        a(href='/super_mario/', target='_blank') Sell Online
+      p
+        | Sell using PayPal. Show multiple product photos.
 
   .c
-    a(href='/ideadeck_team/', target='_blank')
-      #h
-      h2
-        Collect Donations
+    #h
+    h2
+      a(href='/ideadeck_team/', target='_blank') Collect Donations
     p
       | Lightening fast landing page to collect donations.
   .cl
@@ -39,16 +36,19 @@ header.a
 
   script
     :uglify-js
-      function lazyload(src, title, id) {
+      function lazyload(src, title, id, link) {
         var img = new Image()
         img.onload = function() {
             document.getElementById(id).appendChild(img);
+        }
+        img.onclick = function() {
+          window.location = link;
         }
         img.title = title;
         img.alt = title;
         img.src = src;
         img.className = 'd';
       }
-      lazyload('a.gif', 'freelancer landing page', 'a');
-      lazyload('s.gif', 'sell online', 's');
-      lazyload('h.gif', 'donations landing page', 'h');
+      lazyload('a.gif', 'freelancer landing page', 'a', '/abhas_tandon');
+      lazyload('s.gif', 'sell online', 's', '/super_mario');
+      lazyload('h.gif', 'donations landing page', 'h', '/ideadeck_team');
