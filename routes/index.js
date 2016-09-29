@@ -240,7 +240,7 @@ router.post('/try', function(req, res, next) {
 
 router.get('/landing/:path/edit', function(req, res) {
   helper.createModel(req, res, function(err) {
-    if(err) {
+    if (err) {
       //redirecting to /try
       return res.redirect('/try');
     }
@@ -258,14 +258,15 @@ router.get('/donate/', function(req, res, next) {
 
 /* POST subscribe form */
 router.post('/subscribe/:id?', function(req, res, next) {
-  var id = (req.params.id) ? req.params.id : 'abhastandon007@gmail.com';
+  var id = (req.params.id) ? req.params.id :
+    'abhastandon007+subscribe@gmail.com';
   if (!helper.validateEmail(req.body.email)) {
     var err = new Error('Please enter a valid email address to subscribe');
     err.status = 400;
     return next(err);
   }
-  res.redirect(307,
-    'http://formspree.io/' + id
+  res.redirect(301,
+    'mailto:' + id + '?subject=Subscribe&body=' + req.body.email
   );
 });
 
