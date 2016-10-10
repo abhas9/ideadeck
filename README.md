@@ -63,6 +63,7 @@ Landing page generator with a focus on performance, accessibility and minimal de
 * [Abhas Tandon](https://github.com/abhas9)
 * [Sandeep RV](https://github.com/sandeeprv)
 * [Shashi Shekhar](https://github.com/shashi20008)
+* Special Thanks to [thefourtheye](https://github.com/thefourtheye) for code review.
 
 ## Development
 
