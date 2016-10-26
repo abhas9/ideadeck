@@ -1,8 +1,6 @@
 'use strict';
 
 module.exports = function(req, res, next) {
-	var contentType = 'text/html',
-		content = '';
 	console.log(req.body);
 	if (req.body.hasOwnProperty('add_buzzwords')) {
 		res.render('buzzwords', {'i5':'true'});

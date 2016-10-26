@@ -4,9 +4,6 @@ var ajaxRender = require('../controllers/partial-form-renderer');
 var helper = require('../lib/helper');
 
 
-const pug = require('pug');
-const compiledFunction = pug.compileFile(__dirname + '/template.jade');
-
 /* Try now */
 router.get('/try', function(req, res, next) {
   helper.setInitialModel(req, res);

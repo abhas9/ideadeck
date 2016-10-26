@@ -1,3 +1,5 @@
+<img src="images/reddit-webdev.png" alt="Mount Rendering" width="800px">
+
 # IdeaDeck
 Landing page generator with a focus on performance, accessibility and minimal design build with progressive enhancement principles. The project is build as part of the 10kApart challenge. All pages are below 10 KB limit (including the three sample landing pages in the gallery).
 
@@ -61,6 +63,7 @@ Landing page generator with a focus on performance, accessibility and minimal de
 * [Abhas Tandon](https://github.com/abhas9)
 * [Sandeep RV](https://github.com/sandeeprv)
 * [Shashi Shekhar](https://github.com/shashi20008)
+* Special Thanks to [thefourtheye](https://github.com/thefourtheye) for code review.
 
 ## Development
 
