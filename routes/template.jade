@@ -50,7 +50,7 @@ html(prefix='og: http://ogp.me/ns#')
 						.call-for-action-widget
 							a.button.pink(href=website.url, target='_blank', title=website.title) #{website.title}
 					if typeof buy != "undefined"
-						- var url = "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" + buy.email + "&item_name=" + buy.cost + "&currency_code=USD"
+						- var url = "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" + buy.email + "&item_name=" + title + "&amount=" + buy.cost + "&currency_code=USD"
 						.call-for-action-widget
 							a.button.blue(href=url, title='Buy Now')='Buy Now ($' + buy.cost + ')'
 					if typeof donate != "undefined"
