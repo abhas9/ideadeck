@@ -1,7 +1,9 @@
-<img src="images/reddit-webdev.png" alt="Mount Rendering" width="800px">
 
 # IdeaDeck
 Landing page generator with a focus on performance, accessibility and minimal design build with progressive enhancement principles. The project is build as part of the 10kApart challenge. All pages are below 10 KB limit (including the three sample landing pages in the gallery).
+
+## Demo
+(https://ideadeck-10kapart2016.azurewebsites.net/) [https://ideadeck-10kapart2016.azurewebsites.net/]
 
 ## Use cases
 * Showcase your website or app.
@@ -78,3 +80,7 @@ Landing page generator with a focus on performance, accessibility and minimal de
 We are open to all feedbacks, suggestions, and improvements. You can help us in different ways:
   * [Open an issue](https://github.com/abhas9/ideadeck/issues) with suggestions for improvements.
   * Fork this repository and submit a pull request.
+  
+## Thanks for all your love Reddit
+<img src="images/reddit-webdev.png" alt="Reddit webdev" width="800px">
+
