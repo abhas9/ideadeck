@@ -3,7 +3,7 @@
 Landing page generator with a focus on performance, accessibility and minimal design build with progressive enhancement principles. The project is build as part of the 10kApart challenge. All pages are below 10 KB limit (including the three sample landing pages in the gallery).
 
 ## Demo
-https://ideadeck-10kapart2016.azurewebsites.net/
+https://ideadeck.site/
 
 ## Use cases
 * Showcase your website or app.
